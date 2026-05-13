@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <!-- Programmed by Abu Hamoud Ibrahim Al-Lahem -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فريق السعادة - الراجحي</title>
+    <style>
+        :root {
+            --primary-color: #004d33; /* اللون الأخضر العميق من الـ PDF */
+            --secondary-color: #f7f3f0; /* لون خلفية صفحة الاتصال الباهت */
+            --card-bg: #ffffff;
+            --icon-color: #008156;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #004d33;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        #mainPage, #contactPage, .header-logo {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- الهيدر واللوجو --- */
+        .header-logo {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .logo-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-right img {
+            height: 50px;
+        }
+
+        .company-name {
+            text-align: right;
+            line-height: 1.2;
+        }
+
+        .company-name h1 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .company-name p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .hayyakum {
+            text-align: left;
+            border-left: 1px solid rgba(255,255,255,0.3);
+            padding-left: 15px;
+        }
+
+        .hayyakum h2 {
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        /* --- القائمة الرئيسية --- */
+        #mainPage {
+            width: 100%;
+            max-width: 600px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .menu-item {
+            background-color: #ffffff;
+            padding: 25px 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 180px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            /* النوتش العلوي الأيسر والسفلي الأيمن */
+            clip-path: polygon(
+                20% 0, 100% 0, 
+                100% 85%, 85% 100%, 
+                0 100%, 0 20%
+            );
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* أيقونة اليد في الزاوية */
+        .tap-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #008156;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom-right-radius: 10px;
+        }
+
+        .tap-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: white;
+        }
+
+        .menu-item .main-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover .main-icon {
+            transform: scale(1.15) rotate(3deg);
+            background: linear-gradient(135deg, rgba(0,129,86,0.1) 0%, rgba(0,129,86,0.05) 100%);
+            border-color: rgba(0,129,86,0.3);
+        }
+
+        .main-icon svg {
+            width: 90%;
+            height: 90%;
+            stroke: var(--icon-color);
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 1px 3px rgba(0,77,51,0.08));
+        }
+
+        .menu-item span {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            line-height: 1.4;
+        }
+        
+        .menu-item:hover span {
+            color: #006b47;
+            transform: translateY(-2px);
+        }
+
+        /* --- صفحة جهات الاتصال --- */
+        #contactPage {
+            display: none;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #faf8f6 100%);
+            width: 100%;
+            max-width: 500px;
+            border-radius: 25px;
+            padding: 30px;
+            position: relative;
+            animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 20px 60px rgba(0,77,51,0.15);
+            border: 1px solid rgba(0,129,86,0.1);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .contact-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: 60px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-row:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 8px 20px rgba(0,77,51,0.12),
+                        inset 0 1px 2px rgba(255,255,255,0.9);
+        }
+
+        .contact-label {
+            background-color: var(--primary-color);
+            color: white;
+            width: 40%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: bold;
+            /* شكل مائل من اليسار */
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+            order: 2; /* وضعها على اليمين كما في الـ PDF */
+            transition: all 0.3s ease;
+        }
+        
+        .contact-row:hover .contact-label {
+            background-color: #006b47;
+        }
+        
+        .contact-label svg {
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+        }
+        
+        .contact-row:hover .contact-label svg {
+            transform: scale(1.1);
+        }
+        
+        .contact-value {
+            width: 60%;
+            padding: 0 15px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            order: 1;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+        
+        .contact-row:hover .contact-value {
+            color: #006b47;
+        }
+
+        .back-home {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        .back-home:hover {
+            background-color: rgba(0,129,86,0.1);
+            color: #006b47;
+            transform: translateX(-5px);
+        }
+
+        /* --- صفحة العرض الداخلي (Viewer) --- */
+        #viewerPage {
+            display: none;
+            background-color: var(--secondary-color);
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2000;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+        }
+
+        .viewer-content {
+            width: 100%;
+            height: calc(100% - 80px);
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .viewer-content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .viewer-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .back-from-viewer {
+            margin-top: 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #006b47 100%);
+            color: white;
+            padding: 14px 40px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,77,51,0.2);
+            letter-spacing: 0.5px;
+        }
+        
+        .back-from-viewer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0,77,51,0.3);
+        }
+        
+        .back-from-viewer:active {
+            transform: translateY(0);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header-logo">
+        <div class="logo-right">
+            <img src="hq.png" alt="Logo" style="height: 60px; width: auto;">
+            <div class="company-name">
+                <h1> شركة عبد الوهاب صالح الراجحي وشركائه</h1>
+                <p>Abdullwahab Alrajhi & Partners Co.</p>
+            </div>
+        </div>
+        <div class="hayyakum">
+            <h2>حياكم الله</h2>
+            <p style="font-size: 0.7rem; letter-spacing: 2px;">Hayyakum Allah</p>
+        </div>
+    </div>
+
+    <!-- صفحة القائمة الرئيسية -->
+    <div id="mainPage">
+        <!-- 1. اختبر معلوماتك (أعلى يمين) -->
+        <div class="menu-item" onclick="showViewer('اختبر معلوماتك.png', 'image')">
+            <div class="main-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                    <!-- علامة الاستفهام مصغرة وموضوعة في وسط غلاف الكتاب -->
+                    <g transform="translate(4.5, 1.5) scale(0.75)" stroke-width="2">
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                        <circle cx="12" cy="16.5" r="1.5" fill="#008156" stroke="none" />
+                    </g>
+                </svg>
+            </div>
+            <span>اختبر<br>معلوماتك</span>
+        </div>
+
+        <!-- 2. المسابقات (أعلى يسار) -->
+        <div class="menu-item" onclick="showViewer('المسابقات.png', 'image')">
+            <div class="main-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="8" width="18" height="4" rx="1" />
+                    <path d="M12 8v13" />
+                    <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" />
+                    <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" />
+                </svg>
+            </div>
+            <span>المسابقات</span>
+        </div>
+
+        <!-- 3. برامجنا (وسط يمين) -->
+        <div class="menu-item" onclick="showViewer('برامجنا.pdf', 'pdf', 50)">
+            <div class="main-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5">
+                    <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+            </div>
+            <span>برامجنا</span>
+        </div>
+
+        <!-- 4. تعلم نسك الحج (وسط يسار) -->
+        <div class="menu-item" onclick="showViewer('الحج.pdf', 'pdf', 50)">
+            <div class="main-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5">
+                    <path d="M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11m16-11v11M8 14v3m4-3v3m4-3v3"/>
+                </svg>
+            </div>
+            <span>تعلم نسك<br>الحج</span>
+        </div>
+
+        <!-- 5. تواصل مع داعية المخيم (أسفل يمين) -->
+        <div class="menu-item" onclick="document.getElementById('mainPage').style.display='none'; document.getElementById('contactPage').style.display='block';">
+            <div class="main-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5">
+                    <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+            </div>
+            <span>تواصل مع<br>داعية المخيم</span>
+        </div>
+
+        <!-- 6. دليل الحقوق (أسفل يسار) -->
+        <div class="menu-item" onclick="showViewer('دليل حقوق ضيف الرحمن عبدالوهاب.pdf', 'pdf', 50)">
+            <div class="main-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5">
+                    <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5S19.832 5.477 21 6.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+            </div>
+            <span>دليل<br>الحقوق</span>
+        </div>
+
+        <!-- 7. نبض الحج (كامل العرض) -->
+        <div class="menu-item" style="grid-column: span 2; height: 140px;" onclick="showViewer('نبض الحج.pdf', 'pdf', 33)">
+            <div class="main-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5">
+                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+            </div>
+            <span>نبض الحج</span>
+        </div>
+    </div>
+
+    <!-- صفحة العرض الداخلي -->
+    <div id="viewerPage">
+        <div id="viewerContent" class="viewer-content">
+            <!-- Content injected via JS -->
+        </div>
+        <button class="back-from-viewer" onclick="closeViewer()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            العودة للقائمة الرئيسية
+        </button>
+    </div>
+
+    <!-- صفحة جهات الاتصال -->
+    <div id="contactPage">
+        <div class="contact-header">
+            <h2 style="font-size: 1.5rem; margin-bottom: 10px;">عزيزي الحاج</h2>
+            <p style="font-size: 0.9rem; line-height: 1.6;">فريق خدمة العملاء في استعداد تام لخدمتكم والرد على استفساراتكم على مدار الساعة عبر القنوات المعتمدة.</p>
+        </div>
+
+        <div class="contact-row">
+            <div class="contact-label">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                الاتصال
+            </div>
+            <div class="contact-value">920027768</div>
+        </div>
+        <div class="contact-row">
+            <div class="contact-label">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.6 8.38 8.38 0 0 1 3.8.9L21 3z"/></svg>
+                الواتساب
+            </div>
+            <div class="contact-value">0125587850</div>
+        </div>
+        <div class="contact-row">
+            <div class="contact-label">
+                <span style="font-family: sans-serif; font-weight: 900; font-size: 1.2rem;">X</span>
+                إكس
+            </div>
+            <div class="contact-value">@Rajhi_AW</div>
+        </div>
+        <div class="contact-row" style="margin-bottom: 30px;">
+            <div class="contact-label">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                البريد الإلكتروني
+            </div>
+            <div class="contact-value" style="font-size: 0.9rem;">cs@alrajhihaj.com</div>
+        </div>
+
+        <div class="back-home" onclick="document.getElementById('contactPage').style.display='none'; document.getElementById('mainPage').style.display='grid';">
+            <span>العودة للصفحة الرئيسية</span>
+            <div class="home-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showViewer(src, type, zoom = 50) {
+            const viewerPage = document.getElementById('viewerPage');
+            const viewerContent = document.getElementById('viewerContent');
+            
+            if (type === 'image') {
+                viewerContent.innerHTML = `<img src="${src}" alt="Content">`;
+            } else if (type === 'pdf') {
+                viewerContent.innerHTML = `<iframe src="${src}#zoom=${zoom}&toolbar=0"></iframe>`;
+            }
+            
+            viewerPage.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeViewer() {
+            const viewerPage = document.getElementById('viewerPage');
+            viewerPage.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+
+    </script>
+</body>
+</html>
