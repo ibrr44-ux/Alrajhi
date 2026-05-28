@@ -1,535 +1,457 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <!-- Programmed by Abu Hamoud Ibrahim Al-Lahem -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فريق السعادة - الراجحي</title>
-    <style>
-        :root {
-            --primary-color: #004d33; /* اللون الأخضر العميق من الـ PDF */
-            --secondary-color: #f7f3f0; /* لون خلفية صفحة الاتصال الباهت */
-            --card-bg: #ffffff;
-            --icon-color: #008156;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        body {
-            background-color: #004d33;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px 15px;
-        }
-        
-        #mainPage, #contactPage, .header-logo {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* --- الهيدر واللوجو --- */
-        .header-logo {
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 35px;
-            color: white;
-        }
-
-        .logo-right {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-right img {
-            height: 45px;
-        }
-
-        .company-name {
-            text-align: right;
-            line-height: 1.2;
-        }
-
-        .company-name h1 {
-            font-size: 1rem;
-            font-weight: 700;
-        }
-
-        .company-name p {
-            font-size: 0.8rem;
-            opacity: 0.9;
-        }
-
-        .hayyakum {
-            text-align: left;
-            border-left: 1px solid rgba(255,255,255,0.3);
-            padding-left: 15px;
-        }
-
-        .hayyakum h2 {
-            font-size: 1.3rem;
-            font-weight: 900;
-        }
-
-        /* --- القائمة الرئيسية --- */
-        #mainPage {
-            width: 100%;
-            max-width: 600px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .menu-item {
-            background-color: #ffffff;
-            padding: 15px 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 140px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            /* النوتش العلوي الأيسر والسفلي الأيمن */
-            clip-path: polygon(
-                20% 0, 100% 0, 
-                100% 85%, 85% 100%, 
-                0 100%, 0 20%
-            );
-        }
-
-        .menu-item:hover {
-            transform: translateY(-5px);
-        }
-
-        /* أيقونة اليد في الزاوية */
-        .tap-icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: #008156;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-bottom-right-radius: 8px;
-        }
-
-        .tap-icon svg {
-            width: 16px;
-            height: 16px;
-            stroke: white;
-        }
-
-        .menu-item .main-icon {
-            width: 45px;
-            height: 45px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .menu-item:hover .main-icon {
-            transform: scale(1.15) rotate(3deg);
-            background: linear-gradient(135deg, rgba(0,129,86,0.1) 0%, rgba(0,129,86,0.05) 100%);
-            border-color: rgba(0,129,86,0.3);
-        }
-
-        .main-icon svg {
-            width: 90%;
-            height: 90%;
-            stroke: var(--icon-color);
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            filter: drop-shadow(0 1px 3px rgba(0,77,51,0.08));
-        }
-
-        .menu-item span {
-            font-weight: 700;
-            color: var(--primary-color);
-            font-size: 1rem;
-            text-align: center;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            line-height: 1.3;
-        }
-        
-        .menu-item:hover span {
-            color: #006b47;
-            transform: translateY(-2px);
-        }
-
-        /* --- صفحة جهات الاتصال --- */
-        #contactPage {
-            display: none;
-            background: linear-gradient(135deg, var(--secondary-color) 0%, #faf8f6 100%);
-            width: 100%;
-            max-width: 500px;
-            border-radius: 25px;
-            padding: 30px;
-            position: relative;
-            animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 20px 60px rgba(0,77,51,0.15);
-            border: 1px solid rgba(0,129,86,0.1);
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .contact-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        .contact-row {
-            display: flex;
-            align-items: center;
-            background-color: #ffffff;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            height: 60px;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-row:hover {
-            transform: translateX(-5px);
-            box-shadow: 0 8px 20px rgba(0,77,51,0.12),
-                        inset 0 1px 2px rgba(255,255,255,0.9);
-        }
-
-        .contact-label {
-            background-color: var(--primary-color);
-            color: white;
-            width: 40%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-weight: bold;
-            /* شكل مائل من اليسار */
-            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
-            order: 2; /* وضعها على اليمين كما في الـ PDF */
-            transition: all 0.3s ease;
-        }
-        
-        .contact-row:hover .contact-label {
-            background-color: #006b47;
-        }
-        
-        .contact-label svg {
-            transition: all 0.3s ease;
-            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
-        }
-        
-        .contact-row:hover .contact-label svg {
-            transform: scale(1.1);
-        }
-        
-        .contact-value {
-            width: 60%;
-            padding: 0 15px;
-            text-align: center;
-            font-weight: 700;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            order: 1;
-            transition: all 0.3s ease;
-            letter-spacing: 0.3px;
-        }
-        
-        .contact-row:hover .contact-value {
-            color: #006b47;
-        }
-
-        .back-home {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            color: var(--primary-color);
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            padding: 10px 20px;
-            border-radius: 10px;
-            letter-spacing: 0.5px;
-        }
-        
-        .back-home:hover {
-            background-color: rgba(0,129,86,0.1);
-            color: #006b47;
-            transform: translateX(-5px);
-        }
-
-        /* --- صفحة العرض الداخلي (Viewer) --- */
-        #viewerPage {
-            display: none;
-            background-color: white;
-            width: 100%;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 2000;
-            flex-direction: column;
-            align-items: center;
-            padding: 0;
-        }
-
-        .viewer-content {
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-
-        .viewer-content img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .viewer-content iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .back-from-viewer {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 77, 51, 0.75);
-            backdrop-filter: blur(5px);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            letter-spacing: 0.5px;
-            z-index: 2010;
-        }
-        
-        .back-from-viewer:hover {
-            background-color: rgba(0, 77, 51, 0.9);
-            transform: translateX(-50%) translateY(-2px);
-        }
-        
-        .back-from-viewer:active {
-            transform: translateX(-50%) translateY(0);
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <div class="header-logo">
-        <div class="logo-right">
-            <img src="hq.png" alt="Logo" style="height: 60px; width: auto;">
-            <div class="company-name">
-                <h1> شركة عبد الوهاب صالح الراجحي وشركائه</h1>
-                <p>Abdullwahab Alrajhi & Partners Co.</p>
-            </div>
-        </div>
-        <div class="hayyakum">
-            <h2>حياكم الله</h2>
-            <p style="font-size: 0.7rem; letter-spacing: 2px;">Hayyakum Allah</p>
-        </div>
-    </div>
-
-    <!-- صفحة القائمة الرئيسية -->
-    <div id="mainPage">
-        <!-- 1. اختبر معلوماتك (أعلى يمين) -->
-        <div class="menu-item" onclick="showViewer('اختبر معلوماتك.png', 'image')">
-            <div class="main-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-                    <!-- علامة الاستفهام مصغرة وموضوعة في وسط غلاف الكتاب -->
-                    <g transform="translate(4.5, 1.5) scale(0.75)" stroke-width="2">
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                        <circle cx="12" cy="16.5" r="1.5" fill="#008156" stroke="none" />
-                    </g>
-                </svg>
-            </div>
-            <span>اختبر<br>معلوماتك</span>
-        </div>
-
-        <!-- 2. المسابقات (أعلى يسار) -->
-        <div class="menu-item" onclick="showViewer('المسابقات.png', 'image')">
-            <div class="main-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="8" width="18" height="4" rx="1" />
-                    <path d="M12 8v13" />
-                    <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" />
-                    <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" />
-                </svg>
-            </div>
-            <span>المسابقات</span>
-        </div>
-
-        <!-- 3. برامجنا (وسط يمين) -->
-        <div class="menu-item" onclick="showViewer('برامجنا.pdf', 'pdf', 50)">
-            <div class="main-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5">
-                    <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                </svg>
-            </div>
-            <span>برامجنا</span>
-        </div>
-
-        <!-- 4. تعلم نسك الحج (وسط يسار) -->
-        <div class="menu-item" onclick="showViewer('الحج.pdf', 'pdf', 50)">
-            <div class="main-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5">
-                    <path d="M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11m16-11v11M8 14v3m4-3v3m4-3v3"/>
-                </svg>
-            </div>
-            <span>تعلم نسك<br>الحج</span>
-        </div>
-
-        <!-- 5. تواصل مع داعية المخيم (أسفل يمين) -->
-        <div class="menu-item" onclick="document.getElementById('mainPage').style.display='none'; document.getElementById('contactPage').style.display='block';">
-            <div class="main-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5">
-                    <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                </svg>
-            </div>
-            <span>تواصل مع<br>داعية المخيم</span>
-        </div>
-
-        <!-- 6. دليل الحقوق (أسفل يسار) -->
-        <div class="menu-item" onclick="showViewer('دليل حقوق ضيف الرحمن عبدالوهاب.pdf', 'pdf', 50)">
-            <div class="main-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5">
-                    <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5S19.832 5.477 21 6.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                </svg>
-            </div>
-            <span>دليل<br>الحقوق</span>
-        </div>
-
-        <!-- 7. نبض الحج (كامل العرض) -->
-        <div class="menu-item" style="grid-column: span 2; height: 110px;" onclick="showViewer('نبض الحج.pdf', 'pdf', 33)">
-            <div class="main-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#008156" stroke-width="1.5">
-                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                </svg>
-            </div>
-            <span>نبض الحج</span>
-        </div>
-    </div>
-
-    <!-- صفحة العرض الداخلي -->
-    <div id="viewerPage">
-        <div id="viewerContent" class="viewer-content">
-            <!-- Content injected via JS -->
-        </div>
-        <button class="back-from-viewer" onclick="closeViewer()">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            العودة للقائمة الرئيسية
-        </button>
-    </div>
-
-    <!-- صفحة جهات الاتصال -->
-    <div id="contactPage">
-        <div class="contact-header">
-            <h2 style="font-size: 1.5rem; margin-bottom: 10px;">عزيزي الحاج</h2>
-            <p style="font-size: 0.9rem; line-height: 1.6;">فريق خدمة العملاء في استعداد تام لخدمتكم والرد على استفساراتكم على مدار الساعة عبر القنوات المعتمدة.</p>
-        </div>
-
-        <div class="contact-row">
-            <div class="contact-label">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                الاتصال
-            </div>
-            <div class="contact-value">920027768</div>
-        </div>
-        <div class="contact-row">
-            <div class="contact-label">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.6 8.38 8.38 0 0 1 3.8.9L21 3z"/></svg>
-                الواتساب
-            </div>
-            <div class="contact-value">0125587850</div>
-        </div>
-        <div class="contact-row">
-            <div class="contact-label">
-                <span style="font-family: sans-serif; font-weight: 900; font-size: 1.2rem;">X</span>
-                إكس
-            </div>
-            <div class="contact-value">@Rajhi_AW</div>
-        </div>
-        <div class="contact-row" style="margin-bottom: 30px;">
-            <div class="contact-label">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                البريد الإلكتروني
-            </div>
-            <div class="contact-value" style="font-size: 0.9rem;">cs@alrajhihaj.com</div>
-        </div>
-
-        <div class="back-home" onclick="document.getElementById('contactPage').style.display='none'; document.getElementById('mainPage').style.display='grid';">
-            <span>العودة للصفحة الرئيسية</span>
-            <div class="home-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-        </div>
-    </div>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>منوال المستوصفات - الطريق إلى الصحة | دليل المنشآت الصحية الأهلية في الرياض</title>
+    <link rel="stylesheet" href="css/tailwind.css">
+    <script>document.documentElement.dataset.jsLoaded = 'inline'; console.log('✅ inline: OK');</script>
+    <meta name="theme-color" content="#0b0f19">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
     <script>
-        function showViewer(src, type, zoom = 50) {
-            const viewerPage = document.getElementById('viewerPage');
-            const viewerContent = document.getElementById('viewerContent');
-            
-            if (type === 'image') {
-                viewerContent.innerHTML = `<img src="${src}" alt="Content">`;
-            } else if (type === 'pdf') {
-                viewerContent.innerHTML = `<iframe src="${src}#zoom=${zoom}&toolbar=0"></iframe>`;
-            }
-            
-            viewerPage.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+        // إلغاء تسجيل الـ Service Worker نهائياً لحل مشاكل التخزين المؤقت (Cache)
+        if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for (let registration of registrations) {
+                    registration.unregister();
+                }
+            }).catch(function(err) {
+                console.warn('Service worker unregistration failed:', err);
+            });
         }
-
-        function closeViewer() {
-            const viewerPage = document.getElementById('viewerPage');
-            viewerPage.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-
     </script>
+</head>
+<body class="antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+
+    <div id="offlineIndicator" class="hidden fixed top-0 left-0 right-0 bg-amber-100/90 dark:bg-amber-950/90 backdrop-blur-sm text-amber-800 dark:text-amber-200 text-center py-2 text-xs font-bold z-[100] border-b border-amber-200 dark:border-amber-900">
+        📴 وضع المعالجة المحلية (Offline-First) – جميع البيانات متوفرة بدون إنترنت
+    </div>
+
+    <div id="welcomeScreen" class="w-full relative">
+        <!-- Global Header -->
+        <header class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 sticky top-0 z-50 transition-colors">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+                <!-- Right: Logo -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="goToWelcomeScreen()">
+                    <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-xl flex items-center justify-center text-white text-xl shadow-md elite-pulse">
+                        🏥
+                    </div>
+                    <div class="text-right">
+                        <span class="block font-black text-slate-800 dark:text-white text-lg leading-none">دليل الصحة</span>
+                        <span class="block text-[9px] text-slate-405 dark:text-slate-500 font-black mt-1">المنصة الذكية لاختيار المنشآت الصحية الموثوقة</span>
+                    </div>
+                </div>
+
+                <!-- Center: Nav links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="javascript:void(0)" onclick="goToWelcomeScreen()" class="font-extrabold text-teal-600 dark:text-teal-400 transition text-sm">الرئيسية</a>
+                    <a href="javascript:void(0)" class="font-extrabold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white transition text-sm">المراكز الطبية</a>
+                    <a href="javascript:void(0)" class="font-extrabold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white transition text-sm">المقارنات</a>
+                    <a href="javascript:void(0)" class="font-extrabold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white transition text-sm">عن المنصة</a>
+                </nav>
+
+                <!-- Left: Actions -->
+                <div class="flex items-center gap-3">
+                    <button id="themeToggle" class="w-10 h-10 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-full flex items-center justify-center text-lg transition" title="تبديل المظهر">
+                        🌙
+                    </button>
+                    <button class="w-10 h-10 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-full flex items-center justify-center text-lg transition">
+                        🌐
+                    </button>
+                    <a href="https://t.me/ibr369" target="_blank" class="hidden sm:inline-flex bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white px-5 py-2.5 rounded-xl text-xs font-black shadow-md hover:shadow-lg transition items-center gap-1.5 glow-btn">
+                        <span>💬</span> <span>عن المنصة</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="max-w-7xl mx-auto px-4 md:px-8 pt-10 pb-20 space-y-20 relative">
+            <!-- Hero Section -->
+            <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Right: Text & Search Bar (lg:col-span-7) -->
+                <div class="lg:col-span-7 space-y-8 text-right order-2 lg:order-1">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="text-xs font-black bg-teal-50 dark:bg-teal-950/30 text-teal-700 dark:text-teal-400 px-3 py-1 rounded-full border border-teal-100 dark:border-teal-900/50">📍 الرياض</span>
+                            <span class="text-xs font-black bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full border border-blue-100 dark:border-blue-900/50">شرق وغرب ووسط وشمال فقط</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl font-black tracking-tight leading-tight text-slate-850 dark:text-white">
+                            اختر منشأتك الصحية بثقة <br>
+                            <span class="bg-gradient-to-r from-teal-600 to-emerald-500 bg-clip-text text-transparent font-extrabold">تحليل ذكي لسمعة المراكز الطبية</span>
+                        </h1>
+                        <p class="text-slate-650 dark:text-slate-350 text-base leading-relaxed max-w-2xl font-medium">
+                            نحلل آلاف المراجعات الحقيقية لنقدم لك تقييمات دقيقة، موثوقة وموضوعية للمراكز الطبية في الرياض لمساعدتك في اتخاذ القرار الصحيح.
+                        </p>
+                    </div>
+
+                    <!-- Floating Search Bar -->
+                    <div class="bg-white dark:bg-slate-900/90 p-3.5 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xl dark:shadow-slate-950/50 grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+                        <div class="md:col-span-4 relative">
+                            <input type="text" id="heroSearchInput" placeholder="ما هي المشكلة الصحية؟" class="w-full bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-white text-sm pr-9 pl-3 py-3 rounded-2xl border border-slate-200/60 dark:border-slate-800 focus:outline-none focus:border-teal-500 font-bold">
+                            <span class="absolute right-3.5 top-3.5 text-slate-400 text-sm">🔍</span>
+                        </div>
+                        <div class="md:col-span-3">
+                            <select id="heroSpecialtySelect" class="w-full bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-white text-sm pr-3 pl-2 py-3 rounded-2xl border border-slate-200/60 dark:border-slate-800 focus:outline-none focus:border-teal-500 font-bold">
+                                <option value="all">🔍 اختر التخصص</option>
+                                <option value="general_medicine">🩺 طب عام</option>
+                                <option value="dentistry">🦷 طب الأسنان</option>
+                                <option value="dermatology">🧴 الجلدية والتجميل</option>
+                                <option value="physiotherapy">💪 العلاج الطبيعي</option>
+                                <option value="internal_medicine">🔬 الأمراض الباطنة</option>
+                                <option value="obgyn">👶 النساء والولادة</option>
+                                <option value="pediatrics">🧒 طب الأطفال</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-3">
+                            <select id="heroAreaSelect" class="w-full bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-white text-sm pr-3 pl-2 py-3 rounded-2xl border border-slate-200/60 dark:border-slate-800 focus:outline-none focus:border-teal-500 font-bold ring-2 ring-teal-500/20">
+                                <option value="">📍 اختر المنطقة *</option>
+                                <option value="east_center">شرق الرياض ووسطها</option>
+                                <option value="" disabled style="color:#94a3b8">شمال الرياض — قريباً</option>
+                                <option value="" disabled style="color:#94a3b8">غرب الرياض — قريباً</option>
+                                <option value="" disabled style="color:#94a3b8">جنوب الرياض — قريباً</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <button onclick="handleHeroSearch()" class="w-full bg-slate-900 hover:bg-slate-850 dark:bg-teal-600 dark:hover:bg-teal-700 text-white font-black py-3 rounded-2xl text-sm transition flex items-center justify-center gap-1 glow-btn">
+                                <span>ابحث الآن</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left: Beautiful Riyadh Skyline organic image & float card (lg:col-span-5) -->
+                <div class="lg:col-span-5 relative flex justify-center order-1 lg:order-2">
+                    <div class="w-72 h-72 sm:w-96 sm:h-96 rounded-[40px] overflow-hidden bg-gradient-to-br from-teal-500/10 to-indigo-500/10 border-4 border-white dark:border-slate-800 shadow-2xl relative">
+                        <img src="icons/riyadh_hero.png" alt="آفاق الرياض" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-teal-900/20 to-transparent"></div>
+                    </div>
+
+                    <!-- Floating AI analytics card -->
+                    <div class="absolute -bottom-4 right-2 sm:right-6 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800/80 shadow-xl max-w-[200px] float-badge text-right">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-7 h-7 bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded-lg flex items-center justify-center text-sm font-bold">
+                                🧠
+                            </div>
+                            <span class="text-xs font-black text-slate-800 dark:text-white">تحليل ذكي</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-normal font-bold">
+                            يعتمد على الذكاء الاصطناعي لضمان قرارات صحية أفضل.
+                        </p>
+                        <!-- Mock sparkline using SVG -->
+                        <div class="w-full h-8 mt-3">
+                            <svg class="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="gradient-spark" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#0d9488" stop-opacity="0.3"></stop>
+                                        <stop offset="100%" stop-color="#0d9488" stop-opacity="0"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,25 Q15,10 30,20 T60,5 T90,15 L100,10 L100,30 L0,30 Z" fill="url(#gradient-spark)"></path>
+                                <path d="M0,25 Q15,10 30,20 T60,5 T90,15 L100,10" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Browse by symptoms (تصفح حسب المشكلة الصحية) -->
+            <section id="symptoms-section" class="space-y-6">
+                <h3 class="text-xl font-black text-slate-850 dark:text-white text-right pr-1 flex items-center gap-2">
+                    🩺 <span>تصفح حسب المشكلة الصحية:</span>
+                </h3>
+                <div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar scroll-smooth" style="direction: rtl;">
+                    <!-- Card 1 -->
+                    <button onclick="handleSymptomClick('ألم الظهر', 'physiotherapy')" class="symptom-card min-w-[140px] bg-white dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800 text-center shrink-0">
+                        <span class="block text-3xl mb-2">🧘</span>
+                        <span class="block font-black text-slate-850 dark:text-white text-sm">ألم الظهر</span>
+                        <span class="block text-[10px] text-slate-400 dark:text-slate-500 font-bold mt-1">علاج طبيعي</span>
+                    </button>
+                    <!-- Card 2 -->
+                    <button onclick="handleSymptomClick('ألم الرقبة', 'physiotherapy')" class="symptom-card min-w-[140px] bg-white dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800 text-center shrink-0">
+                        <span class="block text-3xl mb-2">🧍</span>
+                        <span class="block font-black text-slate-850 dark:text-white text-sm">ألم الرقبة</span>
+                        <span class="block text-[10px] text-slate-400 dark:text-slate-500 font-bold mt-1">علاج طبيعي</span>
+                    </button>
+                    <!-- Card 3 -->
+                    <button onclick="handleSymptomClick('مفصل الكتف', 'physiotherapy')" class="symptom-card min-w-[140px] bg-white dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800 text-center shrink-0">
+                        <span class="block text-3xl mb-2">💪</span>
+                        <span class="block font-black text-slate-850 dark:text-white text-sm">مفصل الكتف</span>
+                        <span class="block text-[10px] text-slate-400 dark:text-slate-500 font-bold mt-1">علاج طبيعي</span>
+                    </button>
+                    <!-- Card 4 -->
+                    <button onclick="handleSymptomClick('المفصل الركبي', 'physiotherapy')" class="symptom-card min-w-[140px] bg-white dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800 text-center shrink-0">
+                        <span class="block text-3xl mb-2">🚶</span>
+                        <span class="block font-black text-slate-850 dark:text-white text-sm">المفصل الركبي</span>
+                        <span class="block text-[10px] text-slate-400 dark:text-slate-500 font-bold mt-1">علاج طبيعي</span>
+                    </button>
+                    <!-- Card 5 -->
+                    <button onclick="handleSymptomClick('ألم الركبة', 'physiotherapy')" class="symptom-card min-w-[140px] bg-white dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800 text-center shrink-0">
+                        <span class="block text-3xl mb-2">🦵</span>
+                        <span class="block font-black text-slate-850 dark:text-white text-sm">ألم الركبة</span>
+                        <span class="block text-[10px] text-slate-400 dark:text-slate-500 font-bold mt-1">علاج طبيعي</span>
+                    </button>
+                    <!-- Card 6 -->
+                    <button onclick="handleSymptomClick('العمود الفقري', 'physiotherapy')" class="symptom-card min-w-[140px] bg-white dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800 text-center shrink-0">
+                        <span class="block text-3xl mb-2">🦴</span>
+                        <span class="block font-black text-slate-850 dark:text-white text-sm">العمود الفقري</span>
+                        <span class="block text-[10px] text-slate-400 dark:text-slate-500 font-bold mt-1">علاج طبيعي</span>
+                    </button>
+                    <!-- Card 7 -->
+                    <button onclick="handleSymptomClick('زراعة الأسنان', 'dentistry')" class="symptom-card min-w-[140px] bg-white dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800 text-center shrink-0">
+                        <span class="block text-3xl mb-2">🦷</span>
+                        <span class="block font-black text-slate-850 dark:text-white text-sm">زراعة الأسنان</span>
+                        <span class="block text-[10px] text-slate-400 dark:text-slate-500 font-bold mt-1">أسنان</span>
+                    </button>
+                    <!-- Card 8 -->
+                    <button onclick="handleSymptomClick('تقويم الأسنان', 'dentistry')" class="symptom-card min-w-[140px] bg-white dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800 text-center shrink-0">
+                        <span class="block text-3xl mb-2">😁</span>
+                        <span class="block font-black text-slate-850 dark:text-white text-sm">تقويم الأسنان</span>
+                        <span class="block text-[10px] text-slate-400 dark:text-slate-500 font-bold mt-1">أسنان</span>
+                    </button>
+                    <!-- Card 9 -->
+                    <button onclick="handleSymptomClick('حبوب البشرة', 'dermatology')" class="symptom-card min-w-[140px] bg-white dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800 text-center shrink-0">
+                        <span class="block text-3xl mb-2">🧴</span>
+                        <span class="block font-black text-slate-850 dark:text-white text-sm">حبوب البشرة</span>
+                        <span class="block text-[10px] text-slate-400 dark:text-slate-500 font-bold mt-1">جلدية</span>
+                    </button>
+                    <!-- Card 10 -->
+                    <button onclick="handleSymptomClick('تساقط الشعر', 'dermatology')" class="symptom-card min-w-[140px] bg-white dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800 text-center shrink-0">
+                        <span class="block text-3xl mb-2">💇</span>
+                        <span class="block font-black text-slate-850 dark:text-white text-sm">تساقط الشعر</span>
+                        <span class="block text-[10px] text-slate-400 dark:text-slate-500 font-bold mt-1">جلدية</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Regions cards (المناطق الأكثر بحثاً) -->
+            <section id="regions-section" class="space-y-6">
+                <h3 class="text-xl font-black text-slate-850 dark:text-white text-right pr-1 flex items-center gap-2">
+                    🏢 <span>المناطق الأكثر بحثاً في الرياض:</span>
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- East Area Card -->
+                    <div onclick="window.location.href='east_riyadh.html'" class="region-card-parent relative rounded-2xl overflow-hidden shadow-lg h-60 cursor-pointer border border-slate-200/50 dark:border-slate-800">
+                        <img src="icons/east_riyadh.png" alt="شرق الرياض" class="region-card-img absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
+                        <div class="absolute bottom-5 right-5 text-right text-white space-y-1">
+                            <span class="block font-black text-lg">شرق الرياض ووسطها</span>
+                            <span class="block text-xs text-slate-300 font-bold">1,842 مركز طبي</span>
+                            <span class="inline-block text-[10px] bg-emerald-500 text-white font-black px-2 py-0.5 rounded-full mt-2">الأكثر نشاطاً</span>
+                        </div>
+                        <div class="absolute bottom-5 left-5 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-lg transition-transform hover:-translate-x-1">
+                            ←
+                        </div>
+                    </div>
+
+                    <!-- North Area Card -->
+                    <div onclick="window.location.href='east_riyadh.html'" class="region-card-parent relative rounded-2xl overflow-hidden shadow-lg h-60 cursor-pointer border border-slate-200/50 dark:border-slate-800">
+                        <img src="icons/north_riyadh.png" alt="شمال الرياض" class="region-card-img absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
+                        <div class="absolute bottom-5 right-5 text-right text-white space-y-1">
+                            <span class="block font-black text-lg">شمال الرياض ووسطها</span>
+                            <span class="block text-xs text-slate-300 font-bold">744 مركز طبي</span>
+                        </div>
+                        <div class="absolute bottom-5 left-5 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-lg transition-transform hover:-translate-x-1">
+                            ←
+                        </div>
+                    </div>
+
+                    <!-- West Area Card -->
+                    <div onclick="window.location.href='east_riyadh.html'" class="region-card-parent relative rounded-2xl overflow-hidden shadow-lg h-60 cursor-pointer border border-slate-200/50 dark:border-slate-800">
+                        <img src="icons/west_riyadh.png" alt="غرب الرياض" class="region-card-img absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
+                        <div class="absolute bottom-5 right-5 text-right text-white space-y-1">
+                            <span class="block font-black text-lg">غرب الرياض ووسطها</span>
+                            <span class="block text-xs text-slate-300 font-bold">1,256 مركز طبي</span>
+                        </div>
+                        <div class="absolute bottom-5 left-5 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-lg transition-transform hover:-translate-x-1">
+                            ←
+                        </div>
+                    </div>
+
+                    <!-- South Area Card -->
+                    <div onclick="window.location.href='east_riyadh.html'" class="region-card-parent relative rounded-2xl overflow-hidden shadow-lg h-60 cursor-pointer border border-slate-200/50 dark:border-slate-800">
+                        <img src="icons/south_riyadh.png" alt="جنوب الرياض" class="region-card-img absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
+                        <div class="absolute bottom-5 right-5 text-right text-white space-y-1">
+                            <span class="block font-black text-lg">جنوب الرياض ووسطها</span>
+                            <span class="block text-xs text-slate-300 font-bold">382 مركز طبي</span>
+                        </div>
+                        <div class="absolute bottom-5 left-5 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-lg transition-transform hover:-translate-x-1">
+                            ←
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Platform Section -->
+            <section id="about-section" class="bg-white/50 dark:bg-slate-900/50 rounded-3xl p-8 border border-slate-200/60 dark:border-slate-800 shadow-xl space-y-4">
+                <h4 class="font-extrabold text-slate-800 dark:text-white text-lg text-right flex items-center gap-2 border-b border-slate-200/80 dark:border-slate-800 pb-2">
+                    📌 <span>فكرة المشروع وهدفه:</span>
+                </h4>
+                <p class="text-sm text-slate-650 dark:text-slate-300 leading-relaxed text-right font-medium">
+                    هذا الدليل قائم على <b>التوثيق الدقيق والتحقق من صحة ومصداقية الخدمات الصحية الميدانية</b>. نحن لا نعتمد على التقييمات الإلكترونية البسيطة، بل نُحلل <b>متجهات السمعة</b> (كفاءة الكادر الطبي، دقة التشخيص، الشفافية في التسعير، التعامل والرعاية) استناداً إلى أدلة ملموسة وآراء المراجعين الميدانيين الفعليين.
+                </p>
+                <div class="bg-teal-50 dark:bg-teal-950/20 p-4 rounded-2xl border border-teal-100 dark:border-teal-900/50 text-right">
+                    <p class="text-sm text-teal-900 dark:text-teal-300 font-bold">
+                        🎯 هدفنا: تمكين المرضى وأسرهم من اختيار المنشأة الصحية المناسبة بثقة بناءً على جودة الخدمة، دقة التشخيص، الشفافية، وتنافسية الأسعار، لضمان الحصول على رعاية صحية موثوقة ومتقنة.
+                    </p>
+                </div>
+                <div class="bg-amber-50 dark:bg-amber-950/20 p-4 rounded-2xl border border-amber-100 dark:border-amber-900/50 text-right">
+                    <p class="text-xs text-amber-900 dark:text-amber-300 leading-relaxed font-bold">
+                        ⚠️ <b>إخلاء مسؤولية:</b> هذا الدليل يعتمد على توثيقات ميدانية مستقلة تعكس واقع الخدمة وقت المراجعة، ولا يمثل جهة رقابية رسمية. المنصة لا تتحمل أي تبعات قانونية أو تعاقدية ناتجة عن التعامل المباشر مع المنشآت المذكورة، والهدف الأساسي هو تحفيز جودة الخدمة الصحية والمنافسة الشريفة.
+                    </p>
+                </div>
+            </section>
+    </div>
+
+    <div id="directoryScreen" class="hidden max-w-2xl mx-auto px-4 pt-8 pb-20 relative">
+        <div class="glass-card rounded-3xl p-5 mb-6 shadow-xl text-center relative overflow-hidden">
+            <button onclick="goToWelcomeScreen()" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-xl text-sm font-black transition active:scale-95 flex items-center gap-1 shadow-sm border border-slate-200 dark:border-slate-700">
+                🏠 الرئيسية
+            </button>
+            <div class="inline-flex items-center gap-2 bg-white/70 dark:bg-slate-900/70 rounded-full px-4 py-1.5 mt-6 mb-2 shadow-sm">
+                <span class="text-2xl">🏥</span>
+                <h1 class="text-2xl font-black tracking-tight bg-gradient-to-r from-slate-800 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">طريق الصحة</h1>
+                <span class="text-xs font-bold bg-slate-800 dark:bg-slate-700 text-white dark:text-slate-100 px-2.5 py-0.5 rounded-full">منوال المستوصفات</span>
+            </div>
+            <p id="activeAreaSub" class="text-sm text-slate-600 dark:text-slate-300 font-medium">جودة الرعاية الصحية • دليل المنشآت الأهلية • نخبة المرافق</p>
+            <div class="flex justify-center gap-4 mt-2 text-xs text-slate-500 dark:text-slate-400">
+                <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> <span id="totalFacilitiesCount">0 منشأة موثقة</span></div>
+                <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-blue-600"></span> <span id="eliteFacilitiesCount">0 نخبة صحية</span></div>
+            </div>
+        </div>
+
+        <div id="searchFilterContainer" class="hidden">
+            <div class="sticky top-2 z-40 mb-6">
+                <div class="flex flex-wrap justify-center gap-2 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md p-2 rounded-2xl shadow-sm border border-white/50 dark:border-slate-800/50">
+                    <button data-filter="all" class="filter-btn active px-3 py-2 rounded-full text-sm font-bold bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 shadow-md transition-all">🌟 الكل</button>
+                    <button data-filter="general_medicine" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🩺 عامة</button>
+                    <button data-filter="dentistry" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🦷 أسنان</button>
+                    <button data-filter="dermatology" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🧴 جلدية</button>
+                    <button data-filter="physiotherapy" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">💪 علاج طبيعي</button>
+                    <button data-filter="internal_medicine" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🔬 باطنة</button>
+                    <button data-filter="obgyn" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">👶 نساء وولادة</button>
+                    <button data-filter="pediatrics" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🧒 أطفال</button>
+                    <button data-filter="ophthalmology" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">👁️ عيون</button>
+                    <button data-filter="ent" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">👂 أنف وأذن</button>
+                    <button data-filter="orthopedics" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🦴 عظام</button>
+                    <button data-filter="emergency" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🚑 طوارئ</button>
+                    <button data-filter="lab_radiology" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🔬 تحاليل وأشعة</button>
+                    <button data-filter="elite" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-amber-50 border border-amber-200 text-amber-800 shadow-sm dark:bg-amber-950/20 dark:border-amber-900/50 dark:text-amber-400">⭐ نخبة صحية</button>
+                </div>
+            </div>
+
+            <form id="searchForm" class="relative flex gap-3 mb-6">
+                <div class="relative flex-1">
+                    <input type="text" id="searchInput" placeholder="ابحث بتخصص، طبيب، أو خدمة (مثال: أسنان، جلدية، عيون)..."
+                        class="w-full bg-white/90 dark:bg-slate-900/90 dark:text-white backdrop-blur-sm text-base pr-12 pl-10 py-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-slate-700 dark:focus:border-slate-500 focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-800 transition-all shadow-md">
+                    <span class="absolute right-4 top-3.5 text-slate-500 text-lg">🔍</span>
+                    <button type="button" id="clearBtn" class="absolute left-3 top-3.5 text-gray-400 hover:text-slate-700 font-bold text-lg hidden">✕</button>
+                </div>
+                <button type="submit" class="bg-gradient-to-r from-slate-800 to-slate-900 dark:from-slate-700 dark:to-slate-800 text-white px-7 rounded-2xl font-bold text-base shadow-lg hover:shadow-xl transition-all btn-ripple">بحث</button>
+            </form>
+        </div>
+
+        <div id="homeView" class="space-y-5">
+            <div id="resultsCount" class="text-sm font-bold text-slate-500 dark:text-slate-400 pr-1 flex justify-between items-center">
+                <span>✨ النتائج</span>
+                <span class="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full dark:text-slate-300">مباشر</span>
+            </div>
+            <div id="resultsList" class="space-y-5"></div>
+        </div>
+
+        <div id="detailsView" class="hidden space-y-5">
+            <button id="backBtn" class="flex items-center gap-2 text-base font-bold text-slate-700 dark:text-slate-200 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm px-5 py-2.5 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 w-fit transition active:scale-95">
+                ← عودة للقائمة
+            </button>
+            <div id="detailsCard" class="bg-white/90 dark:bg-slate-900/95 backdrop-blur-sm rounded-3xl p-5 border border-white/50 dark:border-slate-800 shadow-2xl"></div>
+        </div>
+
+        <div id="compareView" class="hidden space-y-5">
+            <div class="flex gap-2">
+                <button id="compareBackBtn" class="flex items-center gap-2 text-base font-bold text-slate-700 dark:text-slate-200 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm px-5 py-2.5 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 transition active:scale-95">
+                    ← عودة للقائمة
+                </button>
+                <button id="compareSwapBtn" class="flex items-center gap-2 text-base font-bold text-slate-700 dark:text-slate-200 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm px-5 py-2.5 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 transition active:scale-95">
+                    🔄 تبديل
+                </button>
+            </div>
+            <div id="compareCard" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+        </div>
+
+        <div id="compareFloatingBtn" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+            <button onclick="showCompareView()" class="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-black text-base shadow-2xl shadow-indigo-500/30 transition-all active:scale-95 flex items-center gap-3 border border-white/20">
+                <span>⚖️</span>
+                <span>قارن بين المنشأتين</span>
+            </button>
+        </div>
+
+        <div id="aiModalOverlay" class="hidden fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target===this)closeAIConsult()">
+            <div class="bg-white dark:bg-slate-900 rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 dark:border-slate-700 p-5 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-base font-black flex items-center gap-2">🧠 <span>استشارة الذكاء الاصطناعي</span></h3>
+                    <button onclick="closeAIConsult()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition">✕</button>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">قم بوصف المشكلة الصحية التي تعاني منها، وسيقوم الذكاء الاصطناعي بمقارنة المركزين واقتراح الأنسب لحالتك.</p>
+                <div>
+                    <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">✍️ صِف مشكلتك الصحية:</label>
+                    <textarea id="aiProblemInput" rows="2" placeholder="مثال: أعاني من ألم في الكتف الأيسر مع تنميل في الأصابع..."
+                        class="w-full bg-slate-50 dark:bg-slate-950 text-sm p-3 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-indigo-400 dark:focus:border-indigo-500 resize-none dark:text-white"></textarea>
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">📍 الحي الذي تسكن فيه:</label>
+                    <input type="text" id="aiLocationInput" placeholder="مثال: حي النهضة، الرياض"
+                        class="w-full bg-slate-50 dark:bg-slate-950 text-sm p-3 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-indigo-400 dark:focus:border-indigo-500 dark:text-white">
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-slate-500 mb-1.5">💡 اقتراحات سريعة:</p>
+                    <div id="aiSuggestions" class="flex flex-wrap gap-1.5"></div>
+                </div>
+                <button id="aiSendBtn" onclick="generateAIPrompt()" class="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white py-3.5 rounded-2xl font-black text-base shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2">
+                    <span>🧠</span>
+                    <span>تكويد أمر البحث المتقدم</span>
+                </button>
+                <div id="aiResponseArea" class="hidden space-y-3">
+                    <div class="border-t border-slate-200 dark:border-slate-700 pt-3">
+                        <h4 class="text-xs font-bold text-slate-500 mb-2 flex items-center gap-1">🧠 <span>الأمر جاهز—انسخه والصقه في منصة الذكاء الاصطناعي المفضلة لديك:</span></h4>
+                        <div id="aiResponseContent" class="text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-950/40 p-4 rounded-2xl leading-relaxed whitespace-pre-wrap border border-slate-100 dark:border-slate-800 text-left" dir="ltr" style="direction:ltr;text-align:left;unicode-bidi:embed"></div>
+                    </div>
+                    <button id="aiCopyBtn" onclick="copyAIPrompt()" class="w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white py-3 rounded-2xl font-bold text-sm shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2">
+                        <span>📋</span>
+                        <span>نسخ الأمر</span>
+                    </button>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <a href="https://chat.deepseek.com/" target="_blank" class="bg-indigo-50 dark:bg-indigo-950/20 hover:bg-indigo-100 dark:hover:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 py-3 rounded-xl font-bold text-xs text-center transition flex items-center justify-center gap-1.5 border border-indigo-200 dark:border-indigo-900/50">
+                            <span>🐳</span>
+                            <span>DeepSeek Chat (مع البحث 🌐)</span>
+                        </a>
+                        <a href="https://gemini.google.com/" target="_blank" class="bg-blue-50 dark:bg-blue-950/20 hover:bg-blue-100 dark:hover:bg-blue-950/40 text-blue-700 dark:text-blue-300 py-3 rounded-xl font-bold text-xs text-center transition flex items-center justify-center gap-1.5 border border-blue-200 dark:border-blue-900/50">
+                            <span>✨</span>
+                            <span>Google Gemini</span>
+                        </a>
+                    </div>
+                    <button onclick="closeAIConsult()" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 py-2.5 rounded-xl font-bold text-sm transition">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="max-w-2xl mx-auto px-4 py-8 text-center border-t border-slate-200/40 dark:border-slate-800/40 space-y-2">
+        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold">
+            طريق الصحة (منوال المستوصفات) © 2026
+        </p>
+        <p class="text-xs text-slate-400 dark:text-slate-500 leading-relaxed">
+            هل أنت صاحب منشأة صحية وترغب في إزالة بياناتك أو طلب الانسحاب؟ يمكنك ذلك مباشرة بالتواصل معنا عبر 
+            <a href="https://t.me/ibr369" target="_blank" class="text-indigo-600 dark:text-indigo-400 font-extrabold hover:underline">تليجرام @ibr369</a>
+        </p>
+    </footer>
+
+    <script src="js/data-areas.js"></script>
+    <script src="js/data-east-center.js"></script>
+    <script src="js/core-logic.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

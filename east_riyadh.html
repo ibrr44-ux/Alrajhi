@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرق الرياض ووسطها - دليل المنشآت الصحية</title>
+    <link rel="stylesheet" href="css/tailwind.css">
+    <meta name="theme-color" content="#0b0f19">
+</head>
+<body class="antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+
+    <div id="offlineIndicator" class="hidden fixed top-0 left-0 right-0 bg-amber-100/90 dark:bg-amber-950/90 backdrop-blur-sm text-amber-800 dark:text-amber-200 text-center py-2 text-xs font-bold z-[100] border-b border-amber-200 dark:border-amber-900">
+        📴 وضع المعالجة المحلية (Offline-First) – جميع البيانات متوفرة بدون إنترنت
+    </div>
+
+    <div id="directoryScreen" class="max-w-2xl mx-auto px-4 pt-8 pb-20 relative">
+        <div class="glass-card rounded-3xl p-5 mb-6 shadow-xl text-center relative overflow-hidden">
+            <a href="index.html" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-xl text-sm font-black transition active:scale-95 flex items-center gap-1 shadow-sm border border-slate-200 dark:border-slate-700">
+                🏠 الرئيسية
+            </a>
+            <div class="inline-flex items-center gap-2 bg-white/70 dark:bg-slate-900/70 rounded-full px-4 py-1.5 mt-6 mb-2 shadow-sm">
+                <span class="text-2xl">🏥</span>
+                <h1 class="text-2xl font-black tracking-tight bg-gradient-to-r from-slate-800 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">طريق الصحة</h1>
+                <span class="text-xs font-bold bg-slate-800 dark:bg-slate-700 text-white dark:text-slate-100 px-2.5 py-0.5 rounded-full">منوال المستوصفات</span>
+            </div>
+            <p id="activeAreaSub" class="text-sm text-slate-600 dark:text-slate-300 font-medium">دليل الرعاية الصحية • شرق الرياض ووسطها</p>
+            <div class="flex justify-center gap-4 mt-2 text-xs text-slate-500 dark:text-slate-400">
+                <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> <span id="totalFacilitiesCount">جاري التحميل...</span></div>
+                <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-blue-600"></span> <span id="eliteFacilitiesCount">جاري التحميل...</span></div>
+            </div>
+        </div>
+
+        <div id="searchFilterContainer">
+            <div class="sticky top-2 z-40 mb-6">
+                <div class="flex flex-wrap justify-center gap-2 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md p-2 rounded-2xl shadow-sm border border-white/50 dark:border-slate-800/50">
+                    <button data-filter="all" class="filter-btn active px-3 py-2 rounded-full text-sm font-bold bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 shadow-md transition-all">🌟 الكل</button>
+                    <button data-filter="general_medicine" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🩺 عامة</button>
+                    <button data-filter="dentistry" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🦷 أسنان</button>
+                    <button data-filter="dermatology" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🧴 جلدية</button>
+                    <button data-filter="physiotherapy" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">💪 علاج طبيعي</button>
+                    <button data-filter="internal_medicine" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🔬 باطنة</button>
+                    <button data-filter="obgyn" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">👶 نساء وولادة</button>
+                    <button data-filter="pediatrics" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🧒 أطفال</button>
+                    <button data-filter="ophthalmology" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">👁️ عيون</button>
+                    <button data-filter="ent" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">👂 أنف وأذن</button>
+                    <button data-filter="orthopedics" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🦴 عظام</button>
+                    <button data-filter="emergency" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🚑 طوارئ</button>
+                    <button data-filter="lab_radiology" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 shadow-sm dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">🔬 تحاليل وأشعة</button>
+                    <button data-filter="elite" class="filter-btn px-3 py-2 rounded-full text-sm font-bold bg-amber-50 border border-amber-200 text-amber-800 shadow-sm dark:bg-amber-950/20 dark:border-amber-900/50 dark:text-amber-400">⭐ نخبة صحية</button>
+                </div>
+            </div>
+
+            <form id="searchForm" class="relative flex gap-3 mb-6">
+                <div class="relative flex-1">
+                    <input type="text" id="searchInput" placeholder="ابحث بتخصص، طبيب، أو خدمة (مثال: أسنان، جلدية، عيون)..."
+                        class="w-full bg-white/90 dark:bg-slate-900/90 dark:text-white backdrop-blur-sm text-base pr-12 pl-10 py-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-slate-700 dark:focus:border-slate-500 focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-800 transition-all shadow-md">
+                    <span class="absolute right-4 top-3.5 text-slate-500 text-lg">🔍</span>
+                    <button type="button" id="clearBtn" class="absolute left-3 top-3.5 text-gray-400 hover:text-slate-700 font-bold text-lg hidden">✕</button>
+                </div>
+                <button type="submit" class="bg-gradient-to-r from-slate-800 to-slate-900 dark:from-slate-700 dark:to-slate-800 text-white px-7 rounded-2xl font-bold text-base shadow-lg hover:shadow-xl transition-all btn-ripple">بحث</button>
+            </form>
+        </div>
+
+        <div id="homeView" class="space-y-5">
+            <div id="resultsCount" class="text-sm font-bold text-slate-500 dark:text-slate-400 pr-1 flex justify-between items-center">
+                <span>✨ النتائج</span>
+                <span class="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full dark:text-slate-300">مباشر</span>
+            </div>
+            <div id="resultsList" class="space-y-5">
+                <div class="text-center py-16 text-slate-400">
+                    <span class="text-4xl">🔄</span>
+                    <p class="mt-2 font-bold">جاري تحميل البيانات...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="detailsView" class="hidden space-y-5">
+            <button id="backBtn" class="flex items-center gap-2 text-base font-bold text-slate-700 dark:text-slate-200 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm px-5 py-2.5 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 w-fit transition active:scale-95">
+                ← عودة للقائمة
+            </button>
+            <div id="detailsCard" class="bg-white/90 dark:bg-slate-900/95 backdrop-blur-sm rounded-3xl p-5 border border-white/50 dark:border-slate-800 shadow-2xl"></div>
+        </div>
+
+        <div id="compareView" class="hidden space-y-5">
+            <div class="flex gap-2">
+                <button id="compareBackBtn" class="flex items-center gap-2 text-base font-bold text-slate-700 dark:text-slate-200 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm px-5 py-2.5 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 transition active:scale-95">
+                    ← عودة للقائمة
+                </button>
+                <button id="compareSwapBtn" class="flex items-center gap-2 text-base font-bold text-slate-700 dark:text-slate-200 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm px-5 py-2.5 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 transition active:scale-95">
+                    🔄 تبديل
+                </button>
+            </div>
+            <div id="compareCard" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+        </div>
+
+        <div id="compareFloatingBtn" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+            <button onclick="showCompareView()" class="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-black text-base shadow-2xl shadow-indigo-500/30 transition-all active:scale-95 flex items-center gap-3 border border-white/20">
+                <span>⚖️</span>
+                <span>قارن بين المنشأتين</span>
+            </button>
+        </div>
+
+        <div id="aiModalOverlay" class="hidden fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target===this)closeAIConsult()">
+            <div class="bg-white dark:bg-slate-900 rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 dark:border-slate-700 p-5 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-base font-black flex items-center gap-2">🧠 <span>استشارة الذكاء الاصطناعي</span></h3>
+                    <button onclick="closeAIConsult()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition">✕</button>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">قم بوصف المشكلة الصحية التي تعاني منها، وسيقوم الذكاء الاصطناعي بمقارنة المركزين واقتراح الأنسب لحالتك.</p>
+                <div>
+                    <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">✍️ صِف مشكلتك الصحية:</label>
+                    <textarea id="aiProblemInput" rows="2" placeholder="مثال: أعاني من ألم في الكتف الأيسر مع تنميل في الأصابع..."
+                        class="w-full bg-slate-50 dark:bg-slate-950 text-sm p-3 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-indigo-400 dark:focus:border-indigo-500 resize-none dark:text-white"></textarea>
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">📍 الحي الذي تسكن فيه:</label>
+                    <input type="text" id="aiLocationInput" placeholder="مثال: حي النهضة، الرياض"
+                        class="w-full bg-slate-50 dark:bg-slate-950 text-sm p-3 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-indigo-400 dark:focus:border-indigo-500 dark:text-white">
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-slate-500 mb-1.5">💡 اقتراحات سريعة:</p>
+                    <div id="aiSuggestions" class="flex flex-wrap gap-1.5"></div>
+                </div>
+                <button id="aiSendBtn" onclick="generateAIPrompt()" class="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white py-3.5 rounded-2xl font-black text-base shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2">
+                    <span>🧠</span>
+                    <span>تكويد أمر البحث المتقدم</span>
+                </button>
+                <div id="aiResponseArea" class="hidden space-y-3">
+                    <div class="border-t border-slate-200 dark:border-slate-700 pt-3">
+                        <h4 class="text-xs font-bold text-slate-500 mb-2 flex items-center gap-1">🧠 <span>الأمر جاهز—انسخه والصقه في منصة الذكاء الاصطناعي المفضلة لديك:</span></h4>
+                        <div id="aiResponseContent" class="text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-950/40 p-4 rounded-2xl leading-relaxed whitespace-pre-wrap border border-slate-100 dark:border-slate-800 text-left" dir="ltr" style="direction:ltr;text-align:left;unicode-bidi:embed"></div>
+                    </div>
+                    <button id="aiCopyBtn" onclick="copyAIPrompt()" class="w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white py-3 rounded-2xl font-bold text-sm shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2">
+                        <span>📋</span>
+                        <span>نسخ الأمر</span>
+                    </button>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <a href="https://chat.deepseek.com/" target="_blank" class="bg-indigo-50 dark:bg-indigo-950/20 hover:bg-indigo-100 dark:hover:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 py-3 rounded-xl font-bold text-xs text-center transition flex items-center justify-center gap-1.5 border border-indigo-200 dark:border-indigo-900/50">
+                            <span>🐳</span>
+                            <span>DeepSeek Chat (مع البحث 🌐)</span>
+                        </a>
+                        <a href="https://gemini.google.com/" target="_blank" class="bg-blue-50 dark:bg-blue-950/20 hover:bg-blue-100 dark:hover:bg-blue-950/40 text-blue-700 dark:text-blue-300 py-3 rounded-xl font-bold text-xs text-center transition flex items-center justify-center gap-1.5 border border-blue-200 dark:border-blue-900/50">
+                            <span>✨</span>
+                            <span>Google Gemini</span>
+                        </a>
+                    </div>
+                    <button onclick="closeAIConsult()" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 py-2.5 rounded-xl font-bold text-sm transition">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Initialize standalone page for east_center
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof enterGovernorateArea === 'function') {
+            const params = new URLSearchParams(window.location.search);
+            const filter = params.get('filter') || 'all';
+            const query = params.get('query') || '';
+            enterGovernorateArea('east_center', filter, query);
+        } else {
+            document.getElementById('resultsList').innerHTML = '<div class="p-8 text-center text-red-600 font-bold">❌ خطأ في تحميل التطبيق</div>';
+        }
+    });
+    </script>
+    <script src="js/data-areas.js"></script>
+    <script src="js/data-east-center.js"></script>
+    <script src="js/core-logic.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
