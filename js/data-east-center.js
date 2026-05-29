@@ -1,27 +1,26 @@
 // --------------------------------------------------------------
 //  بيانات المرافق الصحية - شرق الرياض ووسطها
 //  Post-Processed by Reputation Sorting & Distribution Engine V1.0
-//  Source records: 72 | Final facilities: 40 (22 east + 17 central + 1 unclassified)
+//  Source records: 72 | Final facilities: 83 (51 east + 31 central + 1 unclassified)
 // --------------------------------------------------------------
-console.log('✅ data-east-center.js loaded');
 
 // ===== Metadata =====
 const EAST_CENTER_META = {
   engine: "Reputation Sorting & Distribution Engine V1.0",
   processed_at: null,
   source_records_count: 72,
-  facilities_count: 40,
+  facilities_count: 83,
   geographic_imbalance_warning: false,
   specialty_gap_warning: false,
   specialty_gap_detail: null,
   distribution_summary: {
-    east_count: 22,
-    central_count: 17,
+    east_count: 51,
+    central_count: 31,
     unclassified_count: 1,
-    dental_count: 26,
-    dermatology_count: 17,
-    physiotherapy_count: 10,
-    multi_specialty_count: 10
+    dental_count: 56,
+    dermatology_count: 39,
+    physiotherapy_count: 19,
+    multi_specialty_count: 29
   },
   excluded_facilities: [
     {
@@ -182,12 +181,59 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 3 | Zone: east | حي القدس | composite: 74.40 -----
+  // ----- Rank 3 | Zone: east | شرق الرياض | composite: 78.50 -----
+  {
+    "facility_name": "مركز علاجي المتكامل الطبي للعلاج الطبيعي والتأهيل الطبي Elaji center",
+    "zone": "east",
+    "district": "شرق الرياض",
+    "rank": 3,
+    "composite_score": 78.5,
+    "flagged": false,
+    "rating": 4.3,
+    "review_count": 411,
+    "qualified_reviews_count": 3,
+    "facility_type": "center",
+    "normalized_specialization": ["physiotherapy"],
+    "medical_keywords": ["ألم الكتف الايسر", "علاج طبيعي", "تأهيل طبي"],
+    "supported_services": ["علاج طبيعي للكتف", "التأهيل الطبي", "علاج تشنجات الرقبة والأكتاف"],
+    "normalized_problem_category": ["ألم الكتف والرقبة", "تأهيل إصابات الأكتاف"],
+    "service_gaps": ["شكوى من إحدى موظفات الاستقبال بعدم تقدير حالة المرضى والاعتذار بالانشغال", "ملاحظة فنية على قدم الأثاث والأسرة الطبية وتمزقها وحاجتها للصيانة والنظافة المكثفة"],
+    "known_staff": ["الأخصائي عبدالمجيد", "الدكتور أحمد غرياني"],
+    "text_guidance": "شرق الرياض - العلاج الطبيعي والتأهيل الطبي",
+    "phone": null,
+    "trust_score": 82,
+    "confidence_score": 80,
+    "analysis_confidence": 80,
+    "reliability_classification": "HIGH",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": false,
+    "evidence": [{ "text": "بعد معاناه لفتره طويله من ألم بالكتف ومراجعه احد المستشفيات لأخذ جلسات علاج طبيعي ولكن دون فائدة ! تم التوجه الى مركز علاجي المتكامل" }],
+    "reputation_vector": {
+      "technical_skill": 88,
+      "diagnosis_accuracy": 85,
+      "trustworthiness": 80,
+      "pricing_fairness": 75,
+      "customer_behavior": 70
+    },
+    "patient_journey": {
+      "booking_experience": 72,
+      "waiting_time": 75,
+      "treatment_experience": 88,
+      "follow_up_quality": 78
+    },
+    "inferred_strength": "تميز سريري عالي في علاج آلام الكتف وتشنجات الرقبة والأكتاف مع ثناء على الأخصائي عبدالمجيد والدكتور أحمد غرياني",
+    "final_assessment": "خيار موثوق وممتاز لعلاج آلام الكتف والتأهيل الطبي في شرق الرياض مع كادر فني متميز بالرغم من وجود بعض الملاحظات على الاستقبال والأثاث",
+    "area": "east_center"
+  },
+
+  // ----- Rank 4 | Zone: east | حي القدس | composite: 74.40 -----
   {
     "facility_name": "مجمع نهج التقوى لطب الأسنان والجلدية",
     "zone": "east",
     "district": "حي القدس",
-    "rank": 3,
+    "rank": 4,
     "composite_score": 74.4,
     "flagged": false,
     "rating": null,
@@ -229,12 +275,12 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 4 | Zone: east | حي القدس | composite: 68.00 -----
+  // ----- Rank 5 | Zone: east | حي القدس | composite: 68.00 -----
   {
     "facility_name": "مركز رفال المميز",
     "zone": "east",
     "district": "حي القدس",
-    "rank": 4,
+    "rank": 5,
     "composite_score": 68,
     "flagged": false,
     "rating": 4.4,
@@ -276,12 +322,12 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 5 | Zone: east | حي الريان | composite: 67.50 -----
+  // ----- Rank 6 | Zone: east | حي الريان | composite: 67.50 -----
   {
     "facility_name": "عيادات جلو (Glow Clinics)",
     "zone": "east",
     "district": "حي الريان",
-    "rank": 5,
+    "rank": 6,
     "composite_score": 67.5,
     "flagged": true,
     "rating": 4.2,
@@ -323,12 +369,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 6 | Zone: east | حي الريان | composite: 66.58 -----
+  // ----- Rank 7 | Zone: east | حي الريان | composite: 67.50 -----
+  {
+    "facility_name": "عيادات جلو (Glow Clinics)",
+    "zone": "east",
+    "district": "حي الريان",
+    "rank": 7,
+    "composite_score": 67.5,
+    "flagged": true,
+    "rating": 4.2,
+    "review_count": 1650,
+    "qualified_reviews_count": 310,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dermatology"],
+    "medical_keywords": [],
+    "supported_services": [],
+    "normalized_problem_category": [],
+    "service_gaps": [],
+    "known_staff": ["د. شيماء", "د. منى"],
+    "text_guidance": "شرق الرياض - حي الريان / حي الروابي",
+    "phone": "920004543",
+    "trust_score": 68,
+    "confidence_score": 82,
+    "analysis_confidence": 82,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "HIGH",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "MEDIUM",
+    "pending_verification": false,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 76,
+      "diagnosis_accuracy": 80,
+      "trustworthiness": 55,
+      "pricing_fairness": 72,
+      "customer_behavior": 58
+    },
+    "patient_journey": {
+      "booking_experience": 65,
+      "waiting_time": 45,
+      "treatment_experience": 82,
+      "follow_up_quality": 60
+    },
+    "inferred_strength": "سمعة جيدة في جلسات الليزر والتجميل مع كادر طبي نسائي.",
+    "final_assessment": "مخاطر عالية بسبب تذبذب المراجعات، يحتاج تحقق إضافي.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 8 | Zone: east | حي الريان | composite: 67.50 -----
+  {
+    "facility_name": "عيادات جلو (Glow Clinics)",
+    "zone": "east",
+    "district": "حي الريان",
+    "rank": 8,
+    "composite_score": 67.5,
+    "flagged": true,
+    "rating": 4.2,
+    "review_count": 1650,
+    "qualified_reviews_count": 310,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dermatology"],
+    "medical_keywords": [],
+    "supported_services": [],
+    "normalized_problem_category": [],
+    "service_gaps": [],
+    "known_staff": ["د. شيماء", "د. منى"],
+    "text_guidance": "شرق الرياض - حي الريان / حي الروابي",
+    "phone": "920004543",
+    "trust_score": 68,
+    "confidence_score": 82,
+    "analysis_confidence": 82,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "HIGH",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "MEDIUM",
+    "pending_verification": false,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 76,
+      "diagnosis_accuracy": 80,
+      "trustworthiness": 55,
+      "pricing_fairness": 72,
+      "customer_behavior": 58
+    },
+    "patient_journey": {
+      "booking_experience": 65,
+      "waiting_time": 45,
+      "treatment_experience": 82,
+      "follow_up_quality": 60
+    },
+    "inferred_strength": "سمعة جيدة في جلسات الليزر والتجميل مع كادر طبي نسائي.",
+    "final_assessment": "مخاطر عالية بسبب تذبذب المراجعات، يحتاج تحقق إضافي.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 9 | Zone: east | حي الريان | composite: 66.58 -----
   {
     "facility_name": "مركز كايان الطبي (Kayan Medical Center)",
     "zone": "east",
     "district": "حي الريان",
-    "rank": 6,
+    "rank": 9,
     "composite_score": 66.58,
     "flagged": false,
     "rating": 4.2,
@@ -370,12 +510,12 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 7 | Zone: east | حي الروابي | composite: 64.98 -----
+  // ----- Rank 10 | Zone: east | حي الروابي | composite: 64.98 -----
   {
     "facility_name": "مجمع عيادات رام لطب الأسنان والجلدية (فرع شرق الرياض)",
     "zone": "east",
     "district": "حي الروابي",
-    "rank": 7,
+    "rank": 10,
     "composite_score": 64.98,
     "flagged": true,
     "rating": 4.1,
@@ -417,12 +557,12 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 8 | Zone: east | حي الروابي | composite: 62.65 -----
+  // ----- Rank 11 | Zone: east | حي الروابي | composite: 62.65 -----
   {
     "facility_name": "مجمع عيادات صفد لطب الأسنان (فرع الروابي)",
     "zone": "east",
     "district": "حي الروابي",
-    "rank": 8,
+    "rank": 11,
     "composite_score": 62.65,
     "flagged": false,
     "rating": 3.9,
@@ -464,12 +604,12 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 9 | Zone: east | حي القدس | composite: 62.40 -----
+  // ----- Rank 12 | Zone: east | حي القدس | composite: 62.40 -----
   {
     "facility_name": "عيادات الدكتور محمد حلواني | Dr. Mohammed Halawani Clinics",
     "zone": "east",
     "district": "حي القدس",
-    "rank": 9,
+    "rank": 12,
     "composite_score": 62.4,
     "flagged": false,
     "rating": 3.8,
@@ -511,12 +651,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 10 | Zone: east | حي قرطبة | composite: 57.05 -----
+  // ----- Rank 13 | Zone: east | حي القدس | composite: 62.40 -----
+  {
+    "facility_name": "عيادات الدكتور محمد حلواني | Dr. Mohammed Halawani Clinics",
+    "zone": "east",
+    "district": "حي القدس",
+    "rank": 13,
+    "composite_score": 62.4,
+    "flagged": false,
+    "rating": 3.8,
+    "review_count": 178,
+    "qualified_reviews_count": 4,
+    "facility_type": "center",
+    "normalized_specialization": ["physiotherapy"],
+    "medical_keywords": [],
+    "supported_services": [],
+    "normalized_problem_category": [],
+    "service_gaps": [],
+    "known_staff": ["Dr. Zohair", "Physiotherapist Regine"],
+    "text_guidance": "شرق الرياض - حي القدس - الدائري الشرقي الفرعي",
+    "phone": "+966551012059",
+    "trust_score": 66,
+    "confidence_score": 55,
+    "analysis_confidence": 55,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": false,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 75,
+      "diagnosis_accuracy": 70,
+      "trustworthiness": 70,
+      "pricing_fairness": 0,
+      "customer_behavior": 55
+    },
+    "patient_journey": {
+      "booking_experience": 45,
+      "waiting_time": 0,
+      "treatment_experience": 75,
+      "follow_up_quality": 70
+    },
+    "inferred_strength": "كفاءة علاجية في العلاج الطبيعي مع كادر دولي.",
+    "final_assessment": "سمعة محدودة بقلة المراجعات المؤهلة، يحتاج تحققاً إضافياً.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 14 | Zone: east | حي القدس | composite: 62.40 -----
+  {
+    "facility_name": "عيادات الدكتور محمد حلواني | Dr. Mohammed Halawani Clinics",
+    "zone": "east",
+    "district": "حي القدس",
+    "rank": 14,
+    "composite_score": 62.4,
+    "flagged": false,
+    "rating": 3.8,
+    "review_count": 178,
+    "qualified_reviews_count": 4,
+    "facility_type": "center",
+    "normalized_specialization": ["physiotherapy"],
+    "medical_keywords": [],
+    "supported_services": [],
+    "normalized_problem_category": [],
+    "service_gaps": [],
+    "known_staff": ["Dr. Zohair", "Physiotherapist Regine"],
+    "text_guidance": "شرق الرياض - حي القدس - الدائري الشرقي الفرعي",
+    "phone": "+966551012059",
+    "trust_score": 66,
+    "confidence_score": 55,
+    "analysis_confidence": 55,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": false,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 75,
+      "diagnosis_accuracy": 70,
+      "trustworthiness": 70,
+      "pricing_fairness": 0,
+      "customer_behavior": 55
+    },
+    "patient_journey": {
+      "booking_experience": 45,
+      "waiting_time": 0,
+      "treatment_experience": 75,
+      "follow_up_quality": 70
+    },
+    "inferred_strength": "كفاءة علاجية في العلاج الطبيعي مع كادر دولي.",
+    "final_assessment": "سمعة محدودة بقلة المراجعات المؤهلة، يحتاج تحققاً إضافياً.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 15 | Zone: east | حي قرطبة | composite: 57.05 -----
   {
     "facility_name": "مجمع عيادات المسواك لطب الأسنان (فرع قرطبة)",
     "zone": "east",
     "district": "حي قرطبة",
-    "rank": 10,
+    "rank": 15,
     "composite_score": 57.05,
     "flagged": true,
     "rating": 3.8,
@@ -558,12 +792,12 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 11 | Zone: east | حي النهضة | composite: 54.15 -----
+  // ----- Rank 16 | Zone: east | حي النهضة | composite: 54.15 -----
   {
     "facility_name": "Hlarose clinic | عيادة هلا روز",
     "zone": "east",
     "district": "حي النهضة",
-    "rank": 11,
+    "rank": 16,
     "composite_score": 54.15,
     "flagged": false,
     "rating": 4.1,
@@ -605,12 +839,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 12 | Zone: east | حي اليرموك | composite: 53.30 -----
+  // ----- Rank 17 | Zone: east | حي النهضة | composite: 54.15 -----
+  {
+    "facility_name": "Hlarose clinic | عيادة هلا روز",
+    "zone": "east",
+    "district": "حي النهضة",
+    "rank": 17,
+    "composite_score": 54.15,
+    "flagged": false,
+    "rating": 4.1,
+    "review_count": 1000,
+    "qualified_reviews_count": 4,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": ["Emax", "تقويم"],
+    "supported_services": ["تركيبات Emax", "تقويم أسنان"],
+    "normalized_problem_category": ["تركيبات تجميلية", "تقويم أسنان", "أسنان أطفال"],
+    "service_gaps": [],
+    "known_staff": ["Dr. Nada", "Dr. Nesrine Siddiq", "Dr. Murhaf Aboud"],
+    "text_guidance": "شرق الرياض - حي النهضة - شارع سلمان الفارسي.",
+    "phone": "+966114222213",
+    "trust_score": 70,
+    "confidence_score": 55,
+    "analysis_confidence": 55,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": false,
+    "evidence": [{ "text": "تركيبات Emax عند د. مرهف حسّنت ابتسامتي." }],
+    "reputation_vector": {
+      "technical_skill": 80,
+      "diagnosis_accuracy": 75,
+      "trustworthiness": 75,
+      "pricing_fairness": 0,
+      "customer_behavior": 80
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 82,
+      "follow_up_quality": 70
+    },
+    "inferred_strength": "سمعة قوية في التركيبات (Emax) والتقويم مع ذكر أسماء أطباء.",
+    "final_assessment": "السمعة السريرية في الأسنان تبدو إيجابية، لكن درجة الثقة متوسطة لقلة العينة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 18 | Zone: east | حي النهضة | composite: 54.15 -----
+  {
+    "facility_name": "Hlarose clinic | عيادة هلا روز",
+    "zone": "east",
+    "district": "حي النهضة",
+    "rank": 18,
+    "composite_score": 54.15,
+    "flagged": false,
+    "rating": 4.1,
+    "review_count": 1000,
+    "qualified_reviews_count": 4,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": ["Emax", "تقويم"],
+    "supported_services": ["تركيبات Emax", "تقويم أسنان"],
+    "normalized_problem_category": ["تركيبات تجميلية", "تقويم أسنان", "أسنان أطفال"],
+    "service_gaps": [],
+    "known_staff": ["Dr. Nada", "Dr. Nesrine Siddiq", "Dr. Murhaf Aboud"],
+    "text_guidance": "شرق الرياض - حي النهضة - شارع سلمان الفارسي.",
+    "phone": "+966114222213",
+    "trust_score": 70,
+    "confidence_score": 55,
+    "analysis_confidence": 55,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": false,
+    "evidence": [{ "text": "تركيبات Emax عند د. مرهف حسّنت ابتسامتي." }],
+    "reputation_vector": {
+      "technical_skill": 80,
+      "diagnosis_accuracy": 75,
+      "trustworthiness": 75,
+      "pricing_fairness": 0,
+      "customer_behavior": 80
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 82,
+      "follow_up_quality": 70
+    },
+    "inferred_strength": "سمعة قوية في التركيبات (Emax) والتقويم مع ذكر أسماء أطباء.",
+    "final_assessment": "السمعة السريرية في الأسنان تبدو إيجابية، لكن درجة الثقة متوسطة لقلة العينة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 19 | Zone: east | حي اليرموك | composite: 53.30 -----
   {
     "facility_name": "عيادات بيرل فرع اليرموك (Pearl Yarmouk Clinic)",
     "zone": "east",
     "district": "حي اليرموك",
-    "rank": 12,
+    "rank": 19,
     "composite_score": 53.3,
     "flagged": false,
     "rating": 3.5,
@@ -652,12 +980,12 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 13 | Zone: east | حي قرطبة | composite: 52.80 -----
+  // ----- Rank 20 | Zone: east | حي قرطبة | composite: 52.80 -----
   {
     "facility_name": "عيادات سمايلز | Smilez Clinics",
     "zone": "east",
     "district": "حي قرطبة",
-    "rank": 13,
+    "rank": 20,
     "composite_score": 52.8,
     "flagged": false,
     "rating": 4.1,
@@ -699,12 +1027,153 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 14 | Zone: east | حي إشبيليا | composite: 48.75 -----
+  // ----- Rank 21 | Zone: east | حي قرطبة | composite: 52.80 -----
+  {
+    "facility_name": "عيادات سمايلز | Smilez Clinics",
+    "zone": "east",
+    "district": "حي قرطبة",
+    "rank": 21,
+    "composite_score": 52.8,
+    "flagged": false,
+    "rating": 4.1,
+    "review_count": 3100,
+    "qualified_reviews_count": 3,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry", "dermatology"],
+    "medical_keywords": ["Morpheus", "filler"],
+    "supported_services": ["Morpheus", "تقويم أسنان"],
+    "normalized_problem_category": ["شد البشرة", "فيلر", "تقويم"],
+    "service_gaps": [],
+    "known_staff": ["Dr. Naglaa", "Dr. Intisar Farhan"],
+    "text_guidance": "شرق الرياض - حي قرطبة",
+    "phone": "+966920000610",
+    "trust_score": 72,
+    "confidence_score": 65,
+    "analysis_confidence": 65,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": false,
+    "evidence": [{ "text": "فيلر شفايف وذقن عند د. نجلاء؛ شغلها ممتاز." }],
+    "reputation_vector": {
+      "technical_skill": 75,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 78,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "أدلة مؤهلة على نتائج قوية في Morpheus وفيلر مع ذكر طبيبة.",
+    "final_assessment": "السمعة تميل للإيجابية في الجلدية التجميلية مع وجود أسماء أطباء.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 22 | Zone: east | حي قرطبة | composite: 52.80 -----
+  {
+    "facility_name": "عيادات سمايلز | Smilez Clinics",
+    "zone": "east",
+    "district": "حي قرطبة",
+    "rank": 22,
+    "composite_score": 52.8,
+    "flagged": false,
+    "rating": 4.1,
+    "review_count": 3100,
+    "qualified_reviews_count": 3,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry", "dermatology"],
+    "medical_keywords": ["Morpheus", "filler"],
+    "supported_services": ["Morpheus", "تقويم أسنان"],
+    "normalized_problem_category": ["شد البشرة", "فيلر", "تقويم"],
+    "service_gaps": [],
+    "known_staff": ["Dr. Naglaa", "Dr. Intisar Farhan"],
+    "text_guidance": "شرق الرياض - حي قرطبة",
+    "phone": "+966920000610",
+    "trust_score": 72,
+    "confidence_score": 65,
+    "analysis_confidence": 65,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": false,
+    "evidence": [{ "text": "فيلر شفايف وذقن عند د. نجلاء؛ شغلها ممتاز." }],
+    "reputation_vector": {
+      "technical_skill": 75,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 78,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "أدلة مؤهلة على نتائج قوية في Morpheus وفيلر مع ذكر طبيبة.",
+    "final_assessment": "السمعة تميل للإيجابية في الجلدية التجميلية مع وجود أسماء أطباء.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 23 | Zone: east | حي الربوة | composite: 52.50 -----
+  {
+    "facility_name": "مجمع الوطن الطبي 3 | Alwattan Medical Complex 3",
+    "zone": "east",
+    "district": "حي الربوة",
+    "rank": 23,
+    "composite_score": 52.5,
+    "flagged": false,
+    "rating": 4.1,
+    "review_count": 395,
+    "qualified_reviews_count": 84,
+    "facility_type": "clinic",
+    "normalized_specialization": ["orthopedics", "dentistry", "dermatology", "obgyn"],
+    "medical_keywords": ["علاج طبيعي", "ليزر", "فلر", "هيدروفيشال", "انوفيال", "خلع ضرس", "حشوات", "تقويم", "أشعة", "تنظيف أسنان", "كسر", "جراحة عظام"],
+    "supported_services": ["علاج طبيعي", "ليزر", "فلر", "هيدروفيشال", "انوفيال", "خلع ضرس", "حشو عصب", "زراعة أسنان", "تنظيف أسنان", "أشعة سينية", "تحاليل طبية", "سونار", "كشف طبي عام", "طوارئ"],
+    "normalized_problem_category": ["كسور", "آلام مفاصل", "ديسك غضروفي", "التهاب أوتار الكتف", "تساقط شعر", "جفاف بشرة مزمن", "خلع ضرس العقل", "حشو عصب", "زراعة أسنان", "إنزلاق غضروفي عنقي"],
+    "service_gaps": ["انتظار طويل جداً للطبيب العام (يصل إلى ساعتين ونصف)", "صعوبة الحجز الهاتفي وعدم الرد أو انتظار طويل", "مشاكل متكررة في الصيدلية (كذب بشأن التغطية التأمينية، تغيير الأسعار)", "بعض الأطباء غير موثوقين (طبيب عيون لرخصة القيادة، دكتورة جلدية مصرية غير مذكورة)", "سوء تنظيم في الطوارئ (انتظار طويل، سرير واحد)", "إلغاء مواعيد دون إخطار المريض"],
+    "known_staff": ["محمد الغنام (عظام)", "حياة عرفة (أسنان)", "دعاء (جلدية)", "كنده (أسنان)", "عمر عبدالحميد (أسنان)", "بسمة رمضان (نساء وولادة)", "أحمد عبدالرؤوف (أطفال)", "جيهان عبده (نساء وولادة)", "نهلة ديب (نساء وولادة)", "نهله الذيب (نساء)", "أحمد خضر (طبيب عام)", "إسلام أبو العلا (أنف وأذن وحنجرة)", "زهراء (أشعة)", "أحمد السباعي (أنف وأذن)"],
+    "text_guidance": "شارع الأمير متعب بن عبدالعزيز، الربوة، الرياض 12835",
+    "phone": "011 496 4455",
+    "trust_score": 40,
+    "confidence_score": 70,
+    "analysis_confidence": 70,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "LOW",
+    "pending_verification": false,
+    "evidence": [{ "text": "كنت أعاني من آلام شديدة أسفل الظهر والحمدلله تحسنت من أول جلستين" }, { "text": "الدكتور محمد الغنام من افضل الدكاتره التي تم التعامل معهم وهو إنسان محترم وعلي خلق كبير وله خبره قويه في مجاله" }, { "text": "دكتوره جيهان عبده نساء وولاده كلمه شاطره قليله فيها الله يعطيها العافيه فيه مشكله كنت أواجهها من عشر سنوات ماخليت دكتور مارحت له وهي حلتها بعد الله" }, { "text": "الدكتور محمد الغنام من أطباء العظام المتميزين، شخص إنزلاق غضروفي عنقي والتهاب أوتار الكتف بعد فشل أطباء آخرين، وتجنبت الجراحة بفضل علاجه" }, { "text": "الدكتورة حياة عرفة أسنان، شرحت حالتي بكل وضوح، يدها خفيفة، عملت حشوات وتنظيف بنتيجة ممتازة" }],
+    "reputation_vector": {
+      "technical_skill": 75,
+      "diagnosis_accuracy": 65,
+      "trustworthiness": 55,
+      "pricing_fairness": 40,
+      "customer_behavior": 45
+    },
+    "patient_journey": {
+      "booking_experience": 60,
+      "waiting_time": 40,
+      "treatment_experience": 70,
+      "follow_up_quality": 60
+    },
+    "inferred_strength": "يتميز المجمع بكوكبة متميزة من الأطباء في عدة تخصصات، خاصة د. محمد الغنام (عظام) لتشخيص الحالات المعقدة وتجنب الجراحة، ود. حياة عرفة ود. كنده ود. عمر عبدالحميد في الأسنان، ود. دعاء في الجلدية.",
+    "final_assessment": "أداء سريري متميز للأطباء في العظام والأسنان والجلدية، مع فجوة واضحة في الخدمات الإدارية والانتظار.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 24 | Zone: east | حي إشبيليا | composite: 48.75 -----
   {
     "facility_name": "Taleen Medical | مركز تالين الطبي",
     "zone": "east",
     "district": "حي إشبيليا",
-    "rank": 14,
+    "rank": 24,
     "composite_score": 48.75,
     "flagged": false,
     "rating": 4.4,
@@ -746,12 +1215,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 15 | Zone: east | حي الروضة | composite: 46.20 -----
+  // ----- Rank 25 | Zone: east | حي إشبيليا | composite: 48.75 -----
+  {
+    "facility_name": "Taleen Medical | مركز تالين الطبي",
+    "zone": "east",
+    "district": "حي إشبيليا",
+    "rank": 25,
+    "composite_score": 48.75,
+    "flagged": false,
+    "rating": 4.4,
+    "review_count": 6000,
+    "qualified_reviews_count": 4,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dermatology", "dentistry"],
+    "medical_keywords": ["ليزر", "فوليومتريا"],
+    "supported_services": ["جلسات ليزر", "فيلر/فوليومتريا"],
+    "normalized_problem_category": ["جلسات ليزر", "تفتيح الوجه"],
+    "service_gaps": ["جرح/تهيج أثناء التحضير", "دفع منتجات بتاريخ انتهاء قريب"],
+    "known_staff": ["Dr. Amira", "Nurse Judy"],
+    "text_guidance": "شرق الرياض - حي إشبيليا - طريق الصحابة",
+    "phone": "+966112020111",
+    "trust_score": 61,
+    "confidence_score": 55,
+    "analysis_confidence": 55,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "MEDIUM",
+    "pending_verification": false,
+    "evidence": [{ "text": "سويت ليزر وفوليومتريا؛ الأطباء محترفين ومفيدين." }],
+    "reputation_vector": {
+      "technical_skill": 70,
+      "diagnosis_accuracy": 55,
+      "trustworthiness": 45,
+      "pricing_fairness": 40,
+      "customer_behavior": 55
+    },
+    "patient_journey": {
+      "booking_experience": 55,
+      "waiting_time": 40,
+      "treatment_experience": 60,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "توفر خدمات ليزر وتفتيح مع ثناء على بعض الطاقم.",
+    "final_assessment": "تضارب مؤهل بين تجارب راضية وتجارب تشتكي من ضعف النتيجة ومخاطر الشفافية.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 26 | Zone: east | حي إشبيليا | composite: 48.75 -----
+  {
+    "facility_name": "Taleen Medical | مركز تالين الطبي",
+    "zone": "east",
+    "district": "حي إشبيليا",
+    "rank": 26,
+    "composite_score": 48.75,
+    "flagged": false,
+    "rating": 4.4,
+    "review_count": 6000,
+    "qualified_reviews_count": 4,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dermatology", "dentistry"],
+    "medical_keywords": ["ليزر", "فوليومتريا"],
+    "supported_services": ["جلسات ليزر", "فيلر/فوليومتريا"],
+    "normalized_problem_category": ["جلسات ليزر", "تفتيح الوجه"],
+    "service_gaps": ["جرح/تهيج أثناء التحضير", "دفع منتجات بتاريخ انتهاء قريب"],
+    "known_staff": ["Dr. Amira", "Nurse Judy"],
+    "text_guidance": "شرق الرياض - حي إشبيليا - طريق الصحابة",
+    "phone": "+966112020111",
+    "trust_score": 61,
+    "confidence_score": 55,
+    "analysis_confidence": 55,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "MEDIUM",
+    "pending_verification": false,
+    "evidence": [{ "text": "سويت ليزر وفوليومتريا؛ الأطباء محترفين ومفيدين." }],
+    "reputation_vector": {
+      "technical_skill": 70,
+      "diagnosis_accuracy": 55,
+      "trustworthiness": 45,
+      "pricing_fairness": 40,
+      "customer_behavior": 55
+    },
+    "patient_journey": {
+      "booking_experience": 55,
+      "waiting_time": 40,
+      "treatment_experience": 60,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "توفر خدمات ليزر وتفتيح مع ثناء على بعض الطاقم.",
+    "final_assessment": "تضارب مؤهل بين تجارب راضية وتجارب تشتكي من ضعف النتيجة ومخاطر الشفافية.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 27 | Zone: east | حي الروضة | composite: 46.20 -----
   {
     "facility_name": "Kaya Skin Clinic - Art Fitness Centre Branch",
     "zone": "east",
     "district": "حي الروضة",
-    "rank": 15,
+    "rank": 27,
     "composite_score": 46.2,
     "flagged": false,
     "rating": 4.3,
@@ -793,12 +1356,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 16 | Zone: east | حي المنار | composite: 46.10 -----
+  // ----- Rank 28 | Zone: east | حي الروضة | composite: 46.20 -----
+  {
+    "facility_name": "Kaya Skin Clinic - Art Fitness Centre Branch",
+    "zone": "east",
+    "district": "حي الروضة",
+    "rank": 28,
+    "composite_score": 46.2,
+    "flagged": false,
+    "rating": 4.3,
+    "review_count": 579,
+    "qualified_reviews_count": 3,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dermatology"],
+    "medical_keywords": ["creams", "expiry"],
+    "supported_services": ["جلسات ليزر", "Rosy lips treatment"],
+    "normalized_problem_category": ["جلسات ليزر", "تجميل شفاه"],
+    "service_gaps": ["بيع كريمات بتاريخ انتهاء قريب"],
+    "known_staff": ["Dr. Amira"],
+    "text_guidance": "شرق الرياض - حي الروضة - شارع عبدالرحمن الغافقي",
+    "phone": "+966541114273",
+    "trust_score": 63,
+    "confidence_score": 55,
+    "analysis_confidence": 55,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "MEDIUM",
+    "pending_verification": false,
+    "evidence": [{ "text": "جلسة Rosy lips؛ النتيجة باينة من أول جلسة." }],
+    "reputation_vector": {
+      "technical_skill": 68,
+      "diagnosis_accuracy": 65,
+      "trustworthiness": 40,
+      "pricing_fairness": 45,
+      "customer_behavior": 65
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 70,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "أدلة لنتائج تجميلية وليزر جيدة.",
+    "final_assessment": "جودة إجراءات محددة مع نقطة ضعف مرتبطة بصلاحية المنتجات المباعة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 29 | Zone: east | حي الروضة | composite: 46.20 -----
+  {
+    "facility_name": "Kaya Skin Clinic - Art Fitness Centre Branch",
+    "zone": "east",
+    "district": "حي الروضة",
+    "rank": 29,
+    "composite_score": 46.2,
+    "flagged": false,
+    "rating": 4.3,
+    "review_count": 579,
+    "qualified_reviews_count": 3,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dermatology"],
+    "medical_keywords": ["creams", "expiry"],
+    "supported_services": ["جلسات ليزر", "Rosy lips treatment"],
+    "normalized_problem_category": ["جلسات ليزر", "تجميل شفاه"],
+    "service_gaps": ["بيع كريمات بتاريخ انتهاء قريب"],
+    "known_staff": ["Dr. Amira"],
+    "text_guidance": "شرق الرياض - حي الروضة - شارع عبدالرحمن الغافقي",
+    "phone": "+966541114273",
+    "trust_score": 63,
+    "confidence_score": 55,
+    "analysis_confidence": 55,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "MEDIUM",
+    "pending_verification": false,
+    "evidence": [{ "text": "جلسة Rosy lips؛ النتيجة باينة من أول جلسة." }],
+    "reputation_vector": {
+      "technical_skill": 68,
+      "diagnosis_accuracy": 65,
+      "trustworthiness": 40,
+      "pricing_fairness": 45,
+      "customer_behavior": 65
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 70,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "أدلة لنتائج تجميلية وليزر جيدة.",
+    "final_assessment": "جودة إجراءات محددة مع نقطة ضعف مرتبطة بصلاحية المنتجات المباعة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 30 | Zone: east | حي المنار | composite: 46.10 -----
   {
     "facility_name": "عيادات كلية الفارابي لطب الأسنان (الفرع التعليمي/الخدمي)",
     "zone": "east",
     "district": "حي المنار",
-    "rank": 16,
+    "rank": 30,
     "composite_score": 46.1,
     "flagged": true,
     "rating": 3.4,
@@ -840,12 +1497,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 17 | Zone: east | حي الروضة | composite: 42.60 -----
+  // ----- Rank 31 | Zone: east | حي المنار | composite: 46.10 -----
+  {
+    "facility_name": "عيادات كلية الفارابي لطب الأسنان (الفرع التعليمي/الخدمي)",
+    "zone": "east",
+    "district": "حي المنار",
+    "rank": 31,
+    "composite_score": 46.1,
+    "flagged": true,
+    "rating": 3.4,
+    "review_count": 1420,
+    "qualified_reviews_count": 380,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": ["طلاب", "انتظار طويل", "ألم بعد الخلع"],
+    "supported_services": ["طب أسنان عام", "جراحة فم بسيطة"],
+    "normalized_problem_category": ["خلع", "حشوات", "أشعة"],
+    "service_gaps": ["وقت انتظار طويل جداً", "ضعف المتابعة اللاحقة"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض - حي المنار / حي النسيم",
+    "phone": null,
+    "trust_score": 52,
+    "confidence_score": 78,
+    "analysis_confidence": 78,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "LOW",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "HIGH",
+    "pending_verification": true,
+    "evidence": [{ "text": "تم خلع ضرس العقل بنجاح لكن الطبيب كان طالباً واستغرق وقتاً طويلاً جداً" }],
+    "reputation_vector": {
+      "technical_skill": 50,
+      "diagnosis_accuracy": 48,
+      "trustworthiness": 60,
+      "pricing_fairness": 95,
+      "customer_behavior": 30
+    },
+    "patient_journey": {
+      "booking_experience": 40,
+      "waiting_time": 15,
+      "treatment_experience": 52,
+      "follow_up_quality": 35
+    },
+    "inferred_strength": "توفير خدمات طب الأسنان بأسعار رمزية جداً أو مجانية لبعض الحالات.",
+    "final_assessment": "خيار اقتصادي بحت في شرق الرياض؛ لا يُنصح به للحالات المعقدة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 32 | Zone: east | حي المنار | composite: 46.10 -----
+  {
+    "facility_name": "عيادات كلية الفارابي لطب الأسنان (الفرع التعليمي/الخدمي)",
+    "zone": "east",
+    "district": "حي المنار",
+    "rank": 32,
+    "composite_score": 46.1,
+    "flagged": true,
+    "rating": 3.4,
+    "review_count": 1420,
+    "qualified_reviews_count": 380,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": ["طلاب", "انتظار طويل", "ألم بعد الخلع"],
+    "supported_services": ["طب أسنان عام", "جراحة فم بسيطة"],
+    "normalized_problem_category": ["خلع", "حشوات", "أشعة"],
+    "service_gaps": ["وقت انتظار طويل جداً", "ضعف المتابعة اللاحقة"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض - حي المنار / حي النسيم",
+    "phone": null,
+    "trust_score": 52,
+    "confidence_score": 78,
+    "analysis_confidence": 78,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "LOW",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "HIGH",
+    "pending_verification": true,
+    "evidence": [{ "text": "تم خلع ضرس العقل بنجاح لكن الطبيب كان طالباً واستغرق وقتاً طويلاً جداً" }],
+    "reputation_vector": {
+      "technical_skill": 50,
+      "diagnosis_accuracy": 48,
+      "trustworthiness": 60,
+      "pricing_fairness": 95,
+      "customer_behavior": 30
+    },
+    "patient_journey": {
+      "booking_experience": 40,
+      "waiting_time": 15,
+      "treatment_experience": 52,
+      "follow_up_quality": 35
+    },
+    "inferred_strength": "توفير خدمات طب الأسنان بأسعار رمزية جداً أو مجانية لبعض الحالات.",
+    "final_assessment": "خيار اقتصادي بحت في شرق الرياض؛ لا يُنصح به للحالات المعقدة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 33 | Zone: east | حي الروضة | composite: 42.60 -----
   {
     "facility_name": "Rawda Al-Aqsa Clinic Rawdah | عيادة روضة الأقصى",
     "zone": "east",
     "district": "حي الروضة",
-    "rank": 17,
+    "rank": 33,
     "composite_score": 42.6,
     "flagged": false,
     "rating": 3.6,
@@ -887,12 +1638,153 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 18 | Zone: east | غير محدد | composite: 22.50 -----
+  // ----- Rank 34 | Zone: east | حي الروضة | composite: 42.60 -----
+  {
+    "facility_name": "Rawda Al-Aqsa Clinic Rawdah | عيادة روضة الأقصى",
+    "zone": "east",
+    "district": "حي الروضة",
+    "rank": 34,
+    "composite_score": 42.6,
+    "flagged": false,
+    "rating": 3.6,
+    "review_count": 1900,
+    "qualified_reviews_count": 3,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dermatology"],
+    "medical_keywords": ["hydrafacial", "laser"],
+    "supported_services": ["Hydrafacial", "جلسات ليزر"],
+    "normalized_problem_category": ["هيدرافيشل", "جلسات ليزر"],
+    "service_gaps": ["احتكاك متكرر مع الاستقبال/المواعيد"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض - حي الروضة - شارع الحسن بن علي.",
+    "phone": "+966920009145",
+    "trust_score": 58,
+    "confidence_score": 60,
+    "analysis_confidence": 60,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": false,
+    "evidence": [{ "text": "أنصح بالهيدرافيشل؛ الأخصائية والممرضة ممتازين." }],
+    "reputation_vector": {
+      "technical_skill": 62,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 48
+    },
+    "patient_journey": {
+      "booking_experience": 45,
+      "waiting_time": 0,
+      "treatment_experience": 65,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "أدلة تشير لجودة الهيدرافيشل والليزر.",
+    "final_assessment": "السمعة السريرية إيجابية ضمن العينة لكن فجوة تجربة الاستقبال واضحة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 35 | Zone: east | حي الروضة | composite: 42.60 -----
+  {
+    "facility_name": "Rawda Al-Aqsa Clinic Rawdah | عيادة روضة الأقصى",
+    "zone": "east",
+    "district": "حي الروضة",
+    "rank": 35,
+    "composite_score": 42.6,
+    "flagged": false,
+    "rating": 3.6,
+    "review_count": 1900,
+    "qualified_reviews_count": 3,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dermatology"],
+    "medical_keywords": ["hydrafacial", "laser"],
+    "supported_services": ["Hydrafacial", "جلسات ليزر"],
+    "normalized_problem_category": ["هيدرافيشل", "جلسات ليزر"],
+    "service_gaps": ["احتكاك متكرر مع الاستقبال/المواعيد"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض - حي الروضة - شارع الحسن بن علي.",
+    "phone": "+966920009145",
+    "trust_score": 58,
+    "confidence_score": 60,
+    "analysis_confidence": 60,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": false,
+    "evidence": [{ "text": "أنصح بالهيدرافيشل؛ الأخصائية والممرضة ممتازين." }],
+    "reputation_vector": {
+      "technical_skill": 62,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 48
+    },
+    "patient_journey": {
+      "booking_experience": 45,
+      "waiting_time": 0,
+      "treatment_experience": 65,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "أدلة تشير لجودة الهيدرافيشل والليزر.",
+    "final_assessment": "السمعة السريرية إيجابية ضمن العينة لكن فجوة تجربة الاستقبال واضحة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 36 | Zone: east | حي الروابي | composite: 33.00 -----
+  {
+    "facility_name": "مجمع الوطن الطبي 2 | Alwattan Medical Complex 2",
+    "zone": "east",
+    "district": "حي الروابي",
+    "rank": 36,
+    "composite_score": 33,
+    "flagged": true,
+    "rating": 3.3,
+    "review_count": 1044,
+    "qualified_reviews_count": 95,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry", "dermatology", "obgyn", "internal_medicine"],
+    "medical_keywords": ["ليزر", "أسنان", "خلع ضرس", "تلبيسة", "جلسات", "تشخيص", "التهاب", "انتظار", "مواعيد", "طوارئ"],
+    "supported_services": ["ليزر", "حشو عصب", "خلع ضرس", "تلبيسات أسنان", "تنظيف بشرة", "هيدروفيشال", "أشعة", "تحاليل", "سونار", "علاج طبيعي"],
+    "normalized_problem_category": ["تساقط شعر", "ألم أسنان", "التهاب أعصاب", "قولون عصبي", "التهاب الأذن", "آلام أسفل الظهر"],
+    "service_gaps": ["انتظار طويل جداً (3 ساعات للطبيب العام، ساعة في الطوارئ)", "ضعف التواصل الهاتفي (عدم الرد، إعلانات مطولة، لا واتساب)", "عدم نظافة أجهزة الليزر وعدم تعقيم رأس الجهاز", "تشخيص خاطئ متكرر (فلونزا، حالات باطنية)", "استغلال مالي (صرف أدوية باهظة بدون نتيجة)", "سوء تنظيم الطوارئ (سرير واحد، عدم وجود أطباء)", "صعوبة الحصول على العذر الطبي", "عدم احترام المواعيد وغياب نظام انتظار منظم"],
+    "known_staff": ["هدى الرشيدي", "فوزية الرفاعي", "منى أمين", "أحمد إبراهيم", "أحمد السباعي", "عبير", "سهى شلبي", "رحاب الباشا", "مي", "علاء", "بشار الرباط", "سُجى", "أحمد يحيى", "محمد (عظام)", "أحمد (طبيب عام)", "رونا (ممرضة ليزر)", "كريستي (ممرضة)"],
+    "text_guidance": "7291 شارع عنيزة، الروابي، الرياض 14216",
+    "phone": "011 496 4455",
+    "trust_score": 28,
+    "confidence_score": 55,
+    "analysis_confidence": 55,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "HIGH",
+    "pending_verification": false,
+    "evidence": [{ "text": "عندي تساقط شعر ورحت للدكتوره فوزيه ، صرفت لي علاج يمكن بسعر فوق ٧٠٠ وللأسف مافي اي نتيجه ولما رجعت لها بعد شهر قالت خذي مينوكسيديل طيب ليه ما صرفتي من اول ؟؟" }, { "text": "الدكتوره هدى الرشيدي سيئه جيداً وهدفها للأسف مادي بحت ... سوت لي تلبيسه لضرس العقل ولابلغتني الا بعد مادفعت المبلغ" }, { "text": "كنت أعاني من الآلام شديدة أسفل الظهر والحمدلله تحسنت من أول جلستين" }, { "text": "الحمدلله بالالتزام على التمارين خلال أقل من أسبوع الألم راح نهائياً." }, { "text": "راجعت عند الدكتور بشار الرباط في عيادة المسالك البولية وعمل لي جراحة كانت جدا ميسرة و سهلة الحمد لله" }],
+    "reputation_vector": {
+      "technical_skill": 35,
+      "diagnosis_accuracy": 25,
+      "trustworthiness": 30,
+      "pricing_fairness": 40,
+      "customer_behavior": 30
+    },
+    "patient_journey": {
+      "booking_experience": 50,
+      "waiting_time": 20,
+      "treatment_experience": 40,
+      "follow_up_quality": 35
+    },
+    "inferred_strength": "يضم المركز أطباء أفراد متميزين في بعض التخصصات (مثل د. أحمد إبراهيم في الباطنية، د. منى أمين في خلع الأسنان، د. فوزية الرفاعي في الجلدية)، مع تقنيات حديثة كالليزر جنتل ماكس برو.",
+    "final_assessment": "جودة غير متسقة وتباين كبير في أداء الكادر الطبي، مع مشاكل إدارية وتأخر مواعيد.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 37 | Zone: east | غير محدد | composite: 22.50 -----
   {
     "facility_name": "مجمع رفال الصحة الطبي",
     "zone": "east",
     "district": null,
-    "rank": 18,
+    "rank": 37,
     "composite_score": 22.5,
     "flagged": true,
     "rating": 0,
@@ -934,12 +1826,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 19 | Zone: east | غير محدد | composite: 18.00 -----
+  // ----- Rank 38 | Zone: east | غير محدد | composite: 22.50 -----
+  {
+    "facility_name": "مجمع رفال الصحة الطبي",
+    "zone": "east",
+    "district": null,
+    "rank": 38,
+    "composite_score": 22.5,
+    "flagged": true,
+    "rating": 0,
+    "review_count": 0,
+    "qualified_reviews_count": 0,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": [],
+    "supported_services": ["علاج التسوس", "جراحة الفم"],
+    "normalized_problem_category": [],
+    "service_gaps": ["المحتوى المُرصد هو نص تسويقي رسمي خالٍ من أي شهادات مرضى"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض — الموقع الدقيق للحي غير محدد",
+    "phone": null,
+    "trust_score": 15,
+    "confidence_score": 12,
+    "analysis_confidence": 12,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 0,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 0,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "لا يمكن استنتاج نقاط قوة.",
+    "final_assessment": "مُعلق للتحقق. بيانات غير كافية.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 39 | Zone: east | غير محدد | composite: 22.50 -----
+  {
+    "facility_name": "مجمع رفال الصحة الطبي",
+    "zone": "east",
+    "district": null,
+    "rank": 39,
+    "composite_score": 22.5,
+    "flagged": true,
+    "rating": 0,
+    "review_count": 0,
+    "qualified_reviews_count": 0,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": [],
+    "supported_services": ["علاج التسوس", "جراحة الفم"],
+    "normalized_problem_category": [],
+    "service_gaps": ["المحتوى المُرصد هو نص تسويقي رسمي خالٍ من أي شهادات مرضى"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض — الموقع الدقيق للحي غير محدد",
+    "phone": null,
+    "trust_score": 15,
+    "confidence_score": 12,
+    "analysis_confidence": 12,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 0,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 0,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "لا يمكن استنتاج نقاط قوة.",
+    "final_assessment": "مُعلق للتحقق. بيانات غير كافية.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 40 | Zone: east | غير محدد | composite: 18.00 -----
   {
     "facility_name": "عيادات لاكلينيكا لطب الأسنان (La Clinica)",
     "zone": "east",
     "district": null,
-    "rank": 19,
+    "rank": 40,
     "composite_score": 18,
     "flagged": false,
     "rating": 0,
@@ -981,12 +1967,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 20 | Zone: east | حي اليرموك | composite: 15.00 -----
+  // ----- Rank 41 | Zone: east | غير محدد | composite: 18.00 -----
+  {
+    "facility_name": "عيادات لاكلينيكا لطب الأسنان (La Clinica)",
+    "zone": "east",
+    "district": null,
+    "rank": 41,
+    "composite_score": 18,
+    "flagged": false,
+    "rating": 0,
+    "review_count": 0,
+    "qualified_reviews_count": 0,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": [],
+    "supported_services": [],
+    "normalized_problem_category": [],
+    "service_gaps": ["المحتوى تسويقي ذاتي بالكامل"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض",
+    "phone": null,
+    "trust_score": 16,
+    "confidence_score": 14,
+    "analysis_confidence": 14,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 0,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 0,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "لا توجد",
+    "final_assessment": "قيد التحقق لعدم وجود أدلة إكلينيكية.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 42 | Zone: east | غير محدد | composite: 18.00 -----
+  {
+    "facility_name": "عيادات لاكلينيكا لطب الأسنان (La Clinica)",
+    "zone": "east",
+    "district": null,
+    "rank": 42,
+    "composite_score": 18,
+    "flagged": false,
+    "rating": 0,
+    "review_count": 0,
+    "qualified_reviews_count": 0,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": [],
+    "supported_services": [],
+    "normalized_problem_category": [],
+    "service_gaps": ["المحتوى تسويقي ذاتي بالكامل"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض",
+    "phone": null,
+    "trust_score": 16,
+    "confidence_score": 14,
+    "analysis_confidence": 14,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 0,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 0,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "لا توجد",
+    "final_assessment": "قيد التحقق لعدم وجود أدلة إكلينيكية.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 43 | Zone: east | حي اليرموك | composite: 15.00 -----
   {
     "facility_name": "مجمع عيادات اليرموك الطبي",
     "zone": "east",
     "district": "حي اليرموك",
-    "rank": 20,
+    "rank": 43,
     "composite_score": 15,
     "flagged": false,
     "rating": 0,
@@ -1028,12 +2108,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 21 | Zone: east | غير محدد | composite: 14.50 -----
+  // ----- Rank 44 | Zone: east | حي اليرموك | composite: 15.00 -----
+  {
+    "facility_name": "مجمع عيادات اليرموك الطبي",
+    "zone": "east",
+    "district": "حي اليرموك",
+    "rank": 44,
+    "composite_score": 15,
+    "flagged": false,
+    "rating": 0,
+    "review_count": 0,
+    "qualified_reviews_count": 0,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry", "dermatology", "physiotherapy"],
+    "medical_keywords": [],
+    "supported_services": [],
+    "normalized_problem_category": [],
+    "service_gaps": ["لا تتوفر أي بيانات رقمية أو مراجعات مرضى مؤهلة من أي مصدر مرصود"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض — حي اليرموك",
+    "phone": null,
+    "trust_score": 12,
+    "confidence_score": 10,
+    "analysis_confidence": 10,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 0,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 0,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "لا يمكن استنتاج أي نقاط قوة إكلينيكية.",
+    "final_assessment": "بيانات غير كافية بالكامل. يُحوّل الملف للتحقق الميداني الأولوي.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 45 | Zone: east | حي اليرموك | composite: 15.00 -----
+  {
+    "facility_name": "مجمع عيادات اليرموك الطبي",
+    "zone": "east",
+    "district": "حي اليرموك",
+    "rank": 45,
+    "composite_score": 15,
+    "flagged": false,
+    "rating": 0,
+    "review_count": 0,
+    "qualified_reviews_count": 0,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry", "dermatology", "physiotherapy"],
+    "medical_keywords": [],
+    "supported_services": [],
+    "normalized_problem_category": [],
+    "service_gaps": ["لا تتوفر أي بيانات رقمية أو مراجعات مرضى مؤهلة من أي مصدر مرصود"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض — حي اليرموك",
+    "phone": null,
+    "trust_score": 12,
+    "confidence_score": 10,
+    "analysis_confidence": 10,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 0,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 0,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "لا يمكن استنتاج أي نقاط قوة إكلينيكية.",
+    "final_assessment": "بيانات غير كافية بالكامل. يُحوّل الملف للتحقق الميداني الأولوي.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 46 | Zone: east | غير محدد | composite: 14.50 -----
   {
     "facility_name": "مجمع نبراس الطبي",
     "zone": "east",
     "district": null,
-    "rank": 21,
+    "rank": 46,
     "composite_score": 14.5,
     "flagged": false,
     "rating": 0,
@@ -1075,12 +2249,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 22 | Zone: east | حي النسيم | composite: 10.00 -----
+  // ----- Rank 47 | Zone: east | غير محدد | composite: 14.50 -----
+  {
+    "facility_name": "مجمع نبراس الطبي",
+    "zone": "east",
+    "district": null,
+    "rank": 47,
+    "composite_score": 14.5,
+    "flagged": false,
+    "rating": 0,
+    "review_count": 0,
+    "qualified_reviews_count": 0,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry", "dermatology", "physiotherapy"],
+    "medical_keywords": [],
+    "supported_services": [],
+    "normalized_problem_category": [],
+    "service_gaps": ["لا تتوفر أي بيانات رقمية أو مراجعات مرضى مؤهلة من أي مصدر مرصود"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض",
+    "phone": null,
+    "trust_score": 12,
+    "confidence_score": 10,
+    "analysis_confidence": 10,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 0,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 0,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "غياب تام للحضور الرقمي القابل للتحليل.",
+    "final_assessment": "بيانات غير كافية بالكامل. يُوصى بالتحقق الميداني الأولوي.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 48 | Zone: east | غير محدد | composite: 14.50 -----
+  {
+    "facility_name": "مجمع نبراس الطبي",
+    "zone": "east",
+    "district": null,
+    "rank": 48,
+    "composite_score": 14.5,
+    "flagged": false,
+    "rating": 0,
+    "review_count": 0,
+    "qualified_reviews_count": 0,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry", "dermatology", "physiotherapy"],
+    "medical_keywords": [],
+    "supported_services": [],
+    "normalized_problem_category": [],
+    "service_gaps": ["لا تتوفر أي بيانات رقمية أو مراجعات مرضى مؤهلة من أي مصدر مرصود"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض",
+    "phone": null,
+    "trust_score": 12,
+    "confidence_score": 10,
+    "analysis_confidence": 10,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 0,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 0,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "غياب تام للحضور الرقمي القابل للتحليل.",
+    "final_assessment": "بيانات غير كافية بالكامل. يُوصى بالتحقق الميداني الأولوي.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 49 | Zone: east | حي النسيم | composite: 10.00 -----
   {
     "facility_name": "مجمع عيادات النسيم الطبي",
     "zone": "east",
     "district": "حي النسيم",
-    "rank": 22,
+    "rank": 49,
     "composite_score": 10,
     "flagged": false,
     "rating": 0,
@@ -1088,6 +2356,100 @@ FACILITIES_MASTER.push(
     "qualified_reviews_count": 0,
     "facility_type": "clinic",
     "normalized_specialization": ["dentistry", "dermatology", "physiotherapy", "general", "internal_medicine", "pediatrics", "obgyn"],
+    "medical_keywords": [],
+    "supported_services": [],
+    "normalized_problem_category": [],
+    "service_gaps": ["لا تتوفر بيانات"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض — حي النسيم",
+    "phone": null,
+    "trust_score": 11,
+    "confidence_score": 10,
+    "analysis_confidence": 10,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 0,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 0,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "لا توجد",
+    "final_assessment": "قيد التحقق لغياب البيانات.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 50 | Zone: east | حي النسيم | composite: 10.00 -----
+  {
+    "facility_name": "مجمع عيادات النسيم الطبي",
+    "zone": "east",
+    "district": "حي النسيم",
+    "rank": 50,
+    "composite_score": 10,
+    "flagged": false,
+    "rating": 0,
+    "review_count": 0,
+    "qualified_reviews_count": 0,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry", "dermatology", "physiotherapy"],
+    "medical_keywords": [],
+    "supported_services": [],
+    "normalized_problem_category": [],
+    "service_gaps": ["لا تتوفر بيانات"],
+    "known_staff": [],
+    "text_guidance": "شرق الرياض — حي النسيم",
+    "phone": null,
+    "trust_score": 11,
+    "confidence_score": 10,
+    "analysis_confidence": 10,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [],
+    "reputation_vector": {
+      "technical_skill": 0,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 0,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "لا توجد",
+    "final_assessment": "قيد التحقق لغياب البيانات.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 51 | Zone: east | حي النسيم | composite: 10.00 -----
+  {
+    "facility_name": "مجمع عيادات النسيم الطبي",
+    "zone": "east",
+    "district": "حي النسيم",
+    "rank": 51,
+    "composite_score": 10,
+    "flagged": false,
+    "rating": 0,
+    "review_count": 0,
+    "qualified_reviews_count": 0,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry", "dermatology", "physiotherapy"],
     "medical_keywords": [],
     "supported_services": [],
     "normalized_problem_category": [],
@@ -1592,12 +2954,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 11 | Zone: central | غير محدد | composite: 65.90 -----
+  // ----- Rank 11 | Zone: central | غير محدد | composite: 68.70 -----
+  {
+    "facility_name": "Lora Medical Clinic | لورا ميديكال كلينك",
+    "zone": "central",
+    "district": null,
+    "rank": 11,
+    "composite_score": 68.7,
+    "flagged": false,
+    "rating": 4.9,
+    "review_count": 1200,
+    "qualified_reviews_count": 6,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": ["Scaling", "فلورايد"],
+    "supported_services": ["تنظيف أسنان", "تبييض", "حشوات"],
+    "normalized_problem_category": ["تنظيف", "تبييض أسنان", "حشو أسنان", "خلع أسنان"],
+    "service_gaps": ["حاجة فريق الاستقبال لتدريب"],
+    "known_staff": ["Dr. Talal", "Dra. Imelda"],
+    "text_guidance": "وسط الرياض - أمام محطة المتحف الوطني",
+    "phone": "+966562507545",
+    "trust_score": 81,
+    "confidence_score": 78,
+    "analysis_confidence": 78,
+    "reliability_classification": "HIGH",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": false,
+    "evidence": [{ "text": "تنظيف أسنان مع فلورايد؛ بدون ألم وشرح بعد الإجراء." }],
+    "reputation_vector": {
+      "technical_skill": 88,
+      "diagnosis_accuracy": 85,
+      "trustworthiness": 82,
+      "pricing_fairness": 75,
+      "customer_behavior": 90
+    },
+    "patient_journey": {
+      "booking_experience": 85,
+      "waiting_time": 80,
+      "treatment_experience": 92,
+      "follow_up_quality": 85
+    },
+    "inferred_strength": "إجراءات أسنان واضحة بدون ألم وقيمة سعرية معقولة.",
+    "final_assessment": "السمعة السريرية في قسم الأسنان قوية جداً.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 12 | Zone: central | غير محدد | composite: 68.70 -----
+  {
+    "facility_name": "Lora Medical Clinic | لورا ميديكال كلينك",
+    "zone": "central",
+    "district": null,
+    "rank": 12,
+    "composite_score": 68.7,
+    "flagged": false,
+    "rating": 4.9,
+    "review_count": 1200,
+    "qualified_reviews_count": 6,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": ["Scaling", "فلورايد"],
+    "supported_services": ["تنظيف أسنان", "تبييض", "حشوات"],
+    "normalized_problem_category": ["تنظيف", "تبييض أسنان", "حشو أسنان", "خلع أسنان"],
+    "service_gaps": ["حاجة فريق الاستقبال لتدريب"],
+    "known_staff": ["Dr. Talal", "Dra. Imelda"],
+    "text_guidance": "وسط الرياض - أمام محطة المتحف الوطني",
+    "phone": "+966562507545",
+    "trust_score": 81,
+    "confidence_score": 78,
+    "analysis_confidence": 78,
+    "reliability_classification": "HIGH",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": false,
+    "evidence": [{ "text": "تنظيف أسنان مع فلورايد؛ بدون ألم وشرح بعد الإجراء." }],
+    "reputation_vector": {
+      "technical_skill": 88,
+      "diagnosis_accuracy": 85,
+      "trustworthiness": 82,
+      "pricing_fairness": 75,
+      "customer_behavior": 90
+    },
+    "patient_journey": {
+      "booking_experience": 85,
+      "waiting_time": 80,
+      "treatment_experience": 92,
+      "follow_up_quality": 85
+    },
+    "inferred_strength": "إجراءات أسنان واضحة بدون ألم وقيمة سعرية معقولة.",
+    "final_assessment": "السمعة السريرية في قسم الأسنان قوية جداً.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 13 | Zone: central | غير محدد | composite: 65.90 -----
   {
     "facility_name": "مركز الحياة للعلاج الطبيعي وإعادة التأهيل",
     "zone": "central",
     "district": null,
-    "rank": 11,
+    "rank": 13,
     "composite_score": 65.9,
     "flagged": false,
     "rating": null,
@@ -1639,12 +3095,12 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 12 | Zone: central | حي الملز | composite: 54.62 -----
+  // ----- Rank 14 | Zone: central | حي الملز | composite: 54.62 -----
   {
     "facility_name": "Jarir Medical Centre (KIMSHEALTH) | مركز جرير الطبي",
     "zone": "central",
     "district": "حي الملز",
-    "rank": 12,
+    "rank": 14,
     "composite_score": 54.62,
     "flagged": false,
     "rating": 3.7,
@@ -1686,12 +3142,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 13 | Zone: central | العروبة | composite: 38.40 -----
+  // ----- Rank 15 | Zone: central | حي الملز | composite: 54.62 -----
+  {
+    "facility_name": "Jarir Medical Centre (KIMSHEALTH) | مركز جرير الطبي",
+    "zone": "central",
+    "district": "حي الملز",
+    "rank": 15,
+    "composite_score": 54.62,
+    "flagged": false,
+    "rating": 3.7,
+    "review_count": 1900,
+    "qualified_reviews_count": 3,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": ["Root canal"],
+    "supported_services": ["سحب عصب", "علاج أسنان أطفال"],
+    "normalized_problem_category": ["سحب عصب", "أسنان أطفال"],
+    "service_gaps": [],
+    "known_staff": ["Dr. Naga Lakshmi", "Dr. Amina Harmain"],
+    "text_guidance": "وسط الرياض - حي الملز.",
+    "phone": null,
+    "trust_score": 70,
+    "confidence_score": 58,
+    "analysis_confidence": 58,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": false,
+    "evidence": [{ "text": "سويت root canal عند د. Naga؛ أنقذت السن من الخلع." }],
+    "reputation_vector": {
+      "technical_skill": 80,
+      "diagnosis_accuracy": 78,
+      "trustworthiness": 70,
+      "pricing_fairness": 0,
+      "customer_behavior": 75
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 85,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "كفاءة في علاجات العصب وطب أسنان الأطفال.",
+    "final_assessment": "التقييم العام متوسط لكن المقتطفات المؤهلة تشير لجودة جيدة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 16 | Zone: central | حي الملز | composite: 54.62 -----
+  {
+    "facility_name": "Jarir Medical Centre (KIMSHEALTH) | مركز جرير الطبي",
+    "zone": "central",
+    "district": "حي الملز",
+    "rank": 16,
+    "composite_score": 54.62,
+    "flagged": false,
+    "rating": 3.7,
+    "review_count": 1900,
+    "qualified_reviews_count": 3,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": ["Root canal"],
+    "supported_services": ["سحب عصب", "علاج أسنان أطفال"],
+    "normalized_problem_category": ["سحب عصب", "أسنان أطفال"],
+    "service_gaps": [],
+    "known_staff": ["Dr. Naga Lakshmi", "Dr. Amina Harmain"],
+    "text_guidance": "وسط الرياض - حي الملز.",
+    "phone": null,
+    "trust_score": 70,
+    "confidence_score": 58,
+    "analysis_confidence": 58,
+    "reliability_classification": "MEDIUM",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": false,
+    "evidence": [{ "text": "سويت root canal عند د. Naga؛ أنقذت السن من الخلع." }],
+    "reputation_vector": {
+      "technical_skill": 80,
+      "diagnosis_accuracy": 78,
+      "trustworthiness": 70,
+      "pricing_fairness": 0,
+      "customer_behavior": 75
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 85,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "كفاءة في علاجات العصب وطب أسنان الأطفال.",
+    "final_assessment": "التقييم العام متوسط لكن المقتطفات المؤهلة تشير لجودة جيدة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 17 | Zone: central | العروبة | composite: 38.40 -----
   {
     "facility_name": "Kaya Skin Clinic (Al Urubah) | كايا سكين كلينك - العروبة",
     "zone": "central",
     "district": "العروبة",
-    "rank": 13,
+    "rank": 17,
     "composite_score": 38.4,
     "flagged": true,
     "rating": 4.1,
@@ -1733,12 +3283,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 14 | Zone: central | حي الملك فيصل | composite: 38.00 -----
+  // ----- Rank 18 | Zone: central | العروبة | composite: 38.40 -----
+  {
+    "facility_name": "Kaya Skin Clinic (Al Urubah) | كايا سكين كلينك - العروبة",
+    "zone": "central",
+    "district": "العروبة",
+    "rank": 18,
+    "composite_score": 38.4,
+    "flagged": true,
+    "rating": 4.1,
+    "review_count": 854,
+    "qualified_reviews_count": 1,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dermatology"],
+    "medical_keywords": ["بوتوكس", "فيلر"],
+    "supported_services": ["بوتوكس", "فيلر", "جلسات عناية بالبشرة"],
+    "normalized_problem_category": ["بوتوكس", "فيلر"],
+    "service_gaps": [],
+    "known_staff": ["Dr. Naseeb", "Dr. Dina"],
+    "text_guidance": "وسط الرياض - السليمانية/العروبة",
+    "phone": "+966541114273",
+    "trust_score": 48,
+    "confidence_score": 35,
+    "analysis_confidence": 35,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [{ "text": "سويت بوتوكس عند Dr. Naseeb؛ النتيجة ممتازة." }],
+    "reputation_vector": {
+      "technical_skill": 72,
+      "diagnosis_accuracy": 70,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 72,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "إشارة مؤهلة تصف نتيجة بوتوكس/فيلر إيجابية مع ذكر أسماء أطباء.",
+    "final_assessment": "بسبب قلة المراجعات المؤهلة المتاحة، الثقة التحليلية منخفضة وتم تفعيل التحقق.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 19 | Zone: central | العروبة | composite: 38.40 -----
+  {
+    "facility_name": "Kaya Skin Clinic (Al Urubah) | كايا سكين كلينك - العروبة",
+    "zone": "central",
+    "district": "العروبة",
+    "rank": 19,
+    "composite_score": 38.4,
+    "flagged": true,
+    "rating": 4.1,
+    "review_count": 854,
+    "qualified_reviews_count": 1,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dermatology"],
+    "medical_keywords": ["بوتوكس", "فيلر"],
+    "supported_services": ["بوتوكس", "فيلر", "جلسات عناية بالبشرة"],
+    "normalized_problem_category": ["بوتوكس", "فيلر"],
+    "service_gaps": [],
+    "known_staff": ["Dr. Naseeb", "Dr. Dina"],
+    "text_guidance": "وسط الرياض - السليمانية/العروبة",
+    "phone": "+966541114273",
+    "trust_score": 48,
+    "confidence_score": 35,
+    "analysis_confidence": 35,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "NONE",
+    "temporal_risk": "NONE",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [{ "text": "سويت بوتوكس عند Dr. Naseeb؛ النتيجة ممتازة." }],
+    "reputation_vector": {
+      "technical_skill": 72,
+      "diagnosis_accuracy": 70,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 72,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "إشارة مؤهلة تصف نتيجة بوتوكس/فيلر إيجابية مع ذكر أسماء أطباء.",
+    "final_assessment": "بسبب قلة المراجعات المؤهلة المتاحة، الثقة التحليلية منخفضة وتم تفعيل التحقق.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 20 | Zone: central | حي الملك فيصل | composite: 38.00 -----
   {
     "facility_name": "Raya Medical Center Complex | مجمع راية الطبي",
     "zone": "central",
     "district": "حي الملك فيصل",
-    "rank": 14,
+    "rank": 20,
     "composite_score": 38,
     "flagged": true,
     "rating": 3.1,
@@ -1780,12 +3424,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 15 | Zone: central | البطحاء | composite: 35.00 -----
+  // ----- Rank 21 | Zone: central | حي الملك فيصل | composite: 38.00 -----
+  {
+    "facility_name": "Raya Medical Center Complex | مجمع راية الطبي",
+    "zone": "central",
+    "district": "حي الملك فيصل",
+    "rank": 21,
+    "composite_score": 38,
+    "flagged": true,
+    "rating": 3.1,
+    "review_count": 779,
+    "qualified_reviews_count": 1,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": ["teeth defects"],
+    "supported_services": ["إصلاح/ترميم عيوب الأسنان"],
+    "normalized_problem_category": ["عيوب/مشاكل متعددة بالأسنان"],
+    "service_gaps": [],
+    "known_staff": ["Dr. Mamdouh AlShammari"],
+    "text_guidance": "وسط/شرق الرياض - حي الملك فيصل",
+    "phone": "+966112289090",
+    "trust_score": 55,
+    "confidence_score": 35,
+    "analysis_confidence": 35,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [{ "text": "إصلاح عيوب أسنان متعددة بدون ألم؛ نتائج جيدة مع د. ممدوح." }],
+    "reputation_vector": {
+      "technical_skill": 70,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 70,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "إشارة إيجابية حول علاج أسنان بدون ألم.",
+    "final_assessment": "قيد التحقق لعدم كفاية الأدلة المؤهلة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 22 | Zone: central | حي الملك فيصل | composite: 38.00 -----
+  {
+    "facility_name": "Raya Medical Center Complex | مجمع راية الطبي",
+    "zone": "central",
+    "district": "حي الملك فيصل",
+    "rank": 22,
+    "composite_score": 38,
+    "flagged": true,
+    "rating": 3.1,
+    "review_count": 779,
+    "qualified_reviews_count": 1,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": ["teeth defects"],
+    "supported_services": ["إصلاح/ترميم عيوب الأسنان"],
+    "normalized_problem_category": ["عيوب/مشاكل متعددة بالأسنان"],
+    "service_gaps": [],
+    "known_staff": ["Dr. Mamdouh AlShammari"],
+    "text_guidance": "وسط/شرق الرياض - حي الملك فيصل",
+    "phone": "+966112289090",
+    "trust_score": 55,
+    "confidence_score": 35,
+    "analysis_confidence": 35,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [{ "text": "إصلاح عيوب أسنان متعددة بدون ألم؛ نتائج جيدة مع د. ممدوح." }],
+    "reputation_vector": {
+      "technical_skill": 70,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 70,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "إشارة إيجابية حول علاج أسنان بدون ألم.",
+    "final_assessment": "قيد التحقق لعدم كفاية الأدلة المؤهلة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 23 | Zone: central | البطحاء | composite: 35.00 -----
   {
     "facility_name": "Shifa Al Jazeera Polyclinic | شفاء الجزيرة - البطحاء",
     "zone": "central",
     "district": "البطحاء",
-    "rank": 15,
+    "rank": 23,
     "composite_score": 35,
     "flagged": true,
     "rating": 2.7,
@@ -1827,12 +3565,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 16 | Zone: central | حي الملز | composite: 28.50 -----
+  // ----- Rank 24 | Zone: central | البطحاء | composite: 35.00 -----
+  {
+    "facility_name": "Shifa Al Jazeera Polyclinic | شفاء الجزيرة - البطحاء",
+    "zone": "central",
+    "district": "البطحاء",
+    "rank": 24,
+    "composite_score": 35,
+    "flagged": true,
+    "rating": 2.7,
+    "review_count": 275,
+    "qualified_reviews_count": 1,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": ["toothache"],
+    "supported_services": ["علاج أسنان"],
+    "normalized_problem_category": ["ألم أسنان مزمن"],
+    "service_gaps": [],
+    "known_staff": ["Dr Ihtisham Khan"],
+    "text_guidance": "وسط الرياض - البطحاء/الفوطة",
+    "phone": "+966114124900",
+    "trust_score": 50,
+    "confidence_score": 35,
+    "analysis_confidence": 35,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [{ "text": "أعاني من ألم أسنان سنة؛ أنصح باستشارة Dr Ihtisham Khan." }],
+    "reputation_vector": {
+      "technical_skill": 55,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 0,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "تلميح لنجاح في علاج ألم الأسنان مع طبيب محدد.",
+    "final_assessment": "قيد التحقق. التقييم العام سيئ والمراجعات المؤهلة نادرة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 25 | Zone: central | البطحاء | composite: 35.00 -----
+  {
+    "facility_name": "Shifa Al Jazeera Polyclinic | شفاء الجزيرة - البطحاء",
+    "zone": "central",
+    "district": "البطحاء",
+    "rank": 25,
+    "composite_score": 35,
+    "flagged": true,
+    "rating": 2.7,
+    "review_count": 275,
+    "qualified_reviews_count": 1,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": ["toothache"],
+    "supported_services": ["علاج أسنان"],
+    "normalized_problem_category": ["ألم أسنان مزمن"],
+    "service_gaps": [],
+    "known_staff": ["Dr Ihtisham Khan"],
+    "text_guidance": "وسط الرياض - البطحاء/الفوطة",
+    "phone": "+966114124900",
+    "trust_score": 50,
+    "confidence_score": 35,
+    "analysis_confidence": 35,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [{ "text": "أعاني من ألم أسنان سنة؛ أنصح باستشارة Dr Ihtisham Khan." }],
+    "reputation_vector": {
+      "technical_skill": 55,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 0,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "تلميح لنجاح في علاج ألم الأسنان مع طبيب محدد.",
+    "final_assessment": "قيد التحقق. التقييم العام سيئ والمراجعات المؤهلة نادرة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 26 | Zone: central | حي الملز | composite: 28.50 -----
   {
     "facility_name": "AL KHALEEJ MEDICAL CENTER",
     "zone": "central",
     "district": "حي الملز",
-    "rank": 16,
+    "rank": 26,
     "composite_score": 28.5,
     "flagged": true,
     "rating": 3.9,
@@ -1874,12 +3706,106 @@ FACILITIES_MASTER.push(
     "area": "east_center"
   },
 
-  // ----- Rank 17 | Zone: central | حي الملز | composite: 27.20 -----
+  // ----- Rank 27 | Zone: central | حي الملز | composite: 28.50 -----
+  {
+    "facility_name": "AL KHALEEJ MEDICAL CENTER",
+    "zone": "central",
+    "district": "حي الملز",
+    "rank": 27,
+    "composite_score": 28.5,
+    "flagged": true,
+    "rating": 3.9,
+    "review_count": 3100,
+    "qualified_reviews_count": 1,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dermatology"],
+    "medical_keywords": ["laser"],
+    "supported_services": ["جلسات ليزر"],
+    "normalized_problem_category": ["جلسات ليزر"],
+    "service_gaps": [],
+    "known_staff": ["Daisy"],
+    "text_guidance": "وسط الرياض - حي الملز",
+    "phone": null,
+    "trust_score": 45,
+    "confidence_score": 35,
+    "analysis_confidence": 35,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [{ "text": "جلسات ليزر فعّالة؛ الممرضة Daisy موصى بها." }],
+    "reputation_vector": {
+      "technical_skill": 60,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 60,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "إشارة لفعالية الليزر مع فني محدد.",
+    "final_assessment": "قيد التحقق لضعف العينة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 28 | Zone: central | حي الملز | composite: 28.50 -----
+  {
+    "facility_name": "AL KHALEEJ MEDICAL CENTER",
+    "zone": "central",
+    "district": "حي الملز",
+    "rank": 28,
+    "composite_score": 28.5,
+    "flagged": true,
+    "rating": 3.9,
+    "review_count": 3100,
+    "qualified_reviews_count": 1,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dermatology"],
+    "medical_keywords": ["laser"],
+    "supported_services": ["جلسات ليزر"],
+    "normalized_problem_category": ["جلسات ليزر"],
+    "service_gaps": [],
+    "known_staff": ["Daisy"],
+    "text_guidance": "وسط الرياض - حي الملز",
+    "phone": null,
+    "trust_score": 45,
+    "confidence_score": 35,
+    "analysis_confidence": 35,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [{ "text": "جلسات ليزر فعّالة؛ الممرضة Daisy موصى بها." }],
+    "reputation_vector": {
+      "technical_skill": 60,
+      "diagnosis_accuracy": 0,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 0
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 60,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "إشارة لفعالية الليزر مع فني محدد.",
+    "final_assessment": "قيد التحقق لضعف العينة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 29 | Zone: central | حي الملز | composite: 27.20 -----
   {
     "facility_name": "Mumtaz Clinic | عيادة ممتاز - الملز",
     "zone": "central",
     "district": "حي الملز",
-    "rank": 17,
+    "rank": 29,
     "composite_score": 27.2,
     "flagged": true,
     "rating": 2.8,
@@ -1887,6 +3813,100 @@ FACILITIES_MASTER.push(
     "qualified_reviews_count": 1,
     "facility_type": "clinic",
     "normalized_specialization": ["dentistry", "general", "internal_medicine", "pediatrics", "obgyn"],
+    "medical_keywords": ["toothache", "extraction"],
+    "supported_services": ["خلع سن"],
+    "normalized_problem_category": ["ألم أسنان", "خلع سن"],
+    "service_gaps": ["تجربة خلع سيئة/اشتباه سوء ممارسة مع تفاقم الحالة"],
+    "known_staff": [],
+    "text_guidance": "وسط الرياض - حي الملز - شارع جرير",
+    "phone": "+966920016507",
+    "trust_score": 40,
+    "confidence_score": 35,
+    "analysis_confidence": 35,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [{ "text": "ألم ضرس؛ خلع السن صار أسوأ وقالت ارجعي بعد أسبوع." }],
+    "reputation_vector": {
+      "technical_skill": 25,
+      "diagnosis_accuracy": 15,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 20
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 15,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "توجد إشارة مؤهلة سلبية تخص خلع سن.",
+    "final_assessment": "بسبب وجود مراجعة مؤهلة واحدة فقط تخص الأسنان (سلبية)، الثقة التحليلية منخفضة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 30 | Zone: central | حي الملز | composite: 27.20 -----
+  {
+    "facility_name": "Mumtaz Clinic | عيادة ممتاز - الملز",
+    "zone": "central",
+    "district": "حي الملز",
+    "rank": 30,
+    "composite_score": 27.2,
+    "flagged": true,
+    "rating": 2.8,
+    "review_count": 627,
+    "qualified_reviews_count": 1,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
+    "medical_keywords": ["toothache", "extraction"],
+    "supported_services": ["خلع سن"],
+    "normalized_problem_category": ["ألم أسنان", "خلع سن"],
+    "service_gaps": ["تجربة خلع سيئة/اشتباه سوء ممارسة مع تفاقم الحالة"],
+    "known_staff": [],
+    "text_guidance": "وسط الرياض - حي الملز - شارع جرير",
+    "phone": "+966920016507",
+    "trust_score": 40,
+    "confidence_score": 35,
+    "analysis_confidence": 35,
+    "reliability_classification": "LOW",
+    "anomaly_risk": "MEDIUM",
+    "temporal_risk": "MEDIUM",
+    "contradiction_risk": "NONE",
+    "pending_verification": true,
+    "evidence": [{ "text": "ألم ضرس؛ خلع السن صار أسوأ وقالت ارجعي بعد أسبوع." }],
+    "reputation_vector": {
+      "technical_skill": 25,
+      "diagnosis_accuracy": 15,
+      "trustworthiness": 0,
+      "pricing_fairness": 0,
+      "customer_behavior": 20
+    },
+    "patient_journey": {
+      "booking_experience": 0,
+      "waiting_time": 0,
+      "treatment_experience": 15,
+      "follow_up_quality": 0
+    },
+    "inferred_strength": "توجد إشارة مؤهلة سلبية تخص خلع سن.",
+    "final_assessment": "بسبب وجود مراجعة مؤهلة واحدة فقط تخص الأسنان (سلبية)، الثقة التحليلية منخفضة.",
+    "area": "east_center"
+  },
+
+  // ----- Rank 31 | Zone: central | حي الملز | composite: 27.20 -----
+  {
+    "facility_name": "Mumtaz Clinic | عيادة ممتاز - الملز",
+    "zone": "central",
+    "district": "حي الملز",
+    "rank": 31,
+    "composite_score": 27.2,
+    "flagged": true,
+    "rating": 2.8,
+    "review_count": 627,
+    "qualified_reviews_count": 1,
+    "facility_type": "clinic",
+    "normalized_specialization": ["dentistry"],
     "medical_keywords": ["toothache", "extraction"],
     "supported_services": ["خلع سن"],
     "normalized_problem_category": ["ألم أسنان", "خلع سن"],

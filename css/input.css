@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Cairo', 'Segoe UI', 'Tahoma', sans-serif;
+}
+
+body {
+    background: linear-gradient(145deg, #f1f5f9 0%, #e6edf4 100%);
+    min-height: 100vh;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.badge-elite {
+    background: linear-gradient(135deg, #0f2b5e, #1e40af);
+    box-shadow: 0 6px 14px rgba(30, 64, 175, 0.3);
+}
+
+.trust-meter {
+    background: #e2e8f0;
+    border-radius: 20px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.trust-fill {
+    height: 6px;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+.filter-btn {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-btn.active {
+    background: #0f172a !important;
+    color: white !important;
+    box-shadow: 0 8px 18px -6px #0f172a40;
+    border-color: transparent !important;
+}
+
+.card-workshop {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-workshop:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.15);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 10px;
+}
+
+@keyframes subtlePulse {
+    0% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+}
+
+.elite-pulse {
+    animation: subtlePulse 1.2s infinite alternate;
+}
+
+.btn-ripple:active {
+    transform: scale(0.97);
+    transition: transform 0.08s;
+}
+
+body.dark {
+    background: linear-gradient(145deg, #0b0f19 0%, #030712 100%);
+    color: #f8fafc;
+}
+
+body.dark .glass-card {
+    background: rgba(17, 24, 39, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+body.dark .filter-btn.active {
+    background: #f8fafc !important;
+    color: #0f172a !important;
+    box-shadow: 0 8px 18px -6px rgba(255, 255, 255, 0.15);
+}
+
+body.dark .trust-meter {
+    background: #334155;
+}
+
+body.dark ::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+/* New Landing Page Custom Styles */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+@keyframes floatAnimation {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.float-badge {
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+.region-card-img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.region-card-parent:hover .region-card-img {
+    transform: scale(1.1);
+}
+
+.symptom-card {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.symptom-card:hover {
+    transform: translateY(-5px);
+    border-color: #0d9488;
+    box-shadow: 0 12px 20px -8px rgba(13, 148, 136, 0.15);
+}
+
+.glow-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.glow-btn:hover::after {
+    left: 120%;
+    opacity: 1;
+    transition: left 0.8s ease-in-out;
+}
+
